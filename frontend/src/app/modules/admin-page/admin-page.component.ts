@@ -15,12 +15,12 @@ export class AdminPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  public openModal(template:TemplateRef<any>):void  {this.modalRef = this.modalService.show(template);
+  openModal(template:TemplateRef<any>):void  {this.modalRef = this.modalService.show(template);
 
 
   }
 
-  public closeModal(): void {
+   closeModal(): void {
     this.modalRef.hide();
   }
 }

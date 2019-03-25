@@ -1,0 +1,11 @@
+P {
+  border: 1px solid ghostwhite; /* Толщина рамки в пикселах,
+                           тип границы (в данном случае сплошная линия) и
+                           цвет линии */
+  padding: 5px; /* Расстояние от текста до рамки */
+}
+.text-body {text-align: right;
+}
+button{
+  margin-left: 15px;}
+.jumbotron {text-align: center}
