@@ -7,7 +7,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import { LoginPageComponent } from './Components/login-page/login-page.component';
 import { AdminPageComponent } from './Components/admin-page/admin-page.component';
-import {TestComponent} from "./Components/test-component/test.component";
+
 import {BsDropdownModule, ModalModule, TooltipModule} from "ngx-bootstrap";
 
 
@@ -15,8 +15,7 @@ import {BsDropdownModule, ModalModule, TooltipModule} from "ngx-bootstrap";
   declarations: [
     AppComponent,
     LoginPageComponent,
-    AdminPageComponent,
-    TestComponent
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
