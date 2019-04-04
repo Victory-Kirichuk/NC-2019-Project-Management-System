@@ -8,6 +8,7 @@ public class UsersEntity {
     private int userId;
     private String userName;
     private String birthday;
+    private int role;
     private String email;
     private String password;
     private RolesEntity rolesByRole;
@@ -43,6 +44,16 @@ public class UsersEntity {
     }
 
     @Basic
+    @Column(name = "role")
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    @Basic
     @Column(name = "email")
     public String getEmail() {
         return email;
@@ -70,6 +81,7 @@ public class UsersEntity {
         UsersEntity that = (UsersEntity) o;
 
         if (userId != that.userId) return false;
+        if (role != that.role) return false;
         if (userName != null ? !userName.equals(that.userName) : that.userName != null) return false;
         if (birthday != null ? !birthday.equals(that.birthday) : that.birthday != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
@@ -83,13 +95,14 @@ public class UsersEntity {
         int result = userId;
         result = 31 * result + (userName != null ? userName.hashCode() : 0);
         result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
+        result = 31 * result + role;
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "role", referencedColumnName = "role_id", nullable = false)
+    @JoinColumn(name = "role", referencedColumnName = "role_id", nullable = false,insertable = false, updatable = false)
     public RolesEntity getRolesByRole() {
         return rolesByRole;
     }

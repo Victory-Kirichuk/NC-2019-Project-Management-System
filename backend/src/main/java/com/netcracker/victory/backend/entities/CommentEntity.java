@@ -8,9 +8,9 @@ import java.sql.Date;
 public class CommentEntity {
     private int commentId;
     private String comment;
+    private int author;
     private Date creation;
     private Integer taskId;
-    private UsersEntity usersByAuthor;
 
     @Id
     @Column(name = "comment_id")
@@ -30,6 +30,16 @@ public class CommentEntity {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Basic
+    @Column(name = "author")
+    public int getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(int author) {
+        this.author = author;
     }
 
     @Basic
@@ -60,6 +70,7 @@ public class CommentEntity {
         CommentEntity that = (CommentEntity) o;
 
         if (commentId != that.commentId) return false;
+        if (author != that.author) return false;
         if (comment != null ? !comment.equals(that.comment) : that.comment != null) return false;
         if (creation != null ? !creation.equals(that.creation) : that.creation != null) return false;
         if (taskId != null ? !taskId.equals(that.taskId) : that.taskId != null) return false;
@@ -71,18 +82,9 @@ public class CommentEntity {
     public int hashCode() {
         int result = commentId;
         result = 31 * result + (comment != null ? comment.hashCode() : 0);
+        result = 31 * result + author;
         result = 31 * result + (creation != null ? creation.hashCode() : 0);
         result = 31 * result + (taskId != null ? taskId.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "author", referencedColumnName = "user_id", nullable = false)
-    public UsersEntity getUsersByAuthor() {
-        return usersByAuthor;
-    }
-
-    public void setUsersByAuthor(UsersEntity usersByAuthor) {
-        this.usersByAuthor = usersByAuthor;
     }
 }

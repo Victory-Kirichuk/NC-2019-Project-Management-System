@@ -13,6 +13,7 @@
     <bytecodeTargetLevel>
       <module name="backend" target="1.8" />
       <module name="Fapi" target="1.8" />
+      <module name="frontend" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

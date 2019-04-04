@@ -2,10 +2,9 @@ package com.netcracker.victory.backend.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Collection;
 
 @Entity
-@Table(name = "tasks", schema = "pms")
+@Table(name = "tasks", schema = "pms", catalog = "")
 public class TasksEntity {
     private int taskId;
     private String ticketCode;
@@ -22,8 +21,6 @@ public class TasksEntity {
     private int userId;
     private String description;
     private int reporter;
-    private Collection<AttachEntity> attachesByTaskId;
-    private Collection<CommentEntity> commentsByTaskId;
     private ProjectsEntity projectsByProjectId;
     private StatusesEntity statusesByStatus;
     private PrioritiesEntity prioritiesByPriority;
@@ -226,26 +223,8 @@ public class TasksEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "tasksByTaskId")
-    public Collection<AttachEntity> getAttachesByTaskId() {
-        return attachesByTaskId;
-    }
-
-    public void setAttachesByTaskId(Collection<AttachEntity> attachesByTaskId) {
-        this.attachesByTaskId = attachesByTaskId;
-    }
-
-    @OneToMany(mappedBy = "tasksByTaskId")
-    public Collection<CommentEntity> getCommentsByTaskId() {
-        return commentsByTaskId;
-    }
-
-    public void setCommentsByTaskId(Collection<CommentEntity> commentsByTaskId) {
-        this.commentsByTaskId = commentsByTaskId;
-    }
-
     @ManyToOne
-    @JoinColumn(name = "project_id", referencedColumnName = "project_id", nullable = false)
+    @JoinColumn(name = "project_id", referencedColumnName = "project_id", nullable = false,insertable = false, updatable = false)
     public ProjectsEntity getProjectsByProjectId() {
         return projectsByProjectId;
     }
@@ -255,7 +234,7 @@ public class TasksEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "status", referencedColumnName = "status_id", nullable = false)
+    @JoinColumn(name = "status", referencedColumnName = "status_id", nullable = false,insertable = false, updatable = false)
     public StatusesEntity getStatusesByStatus() {
         return statusesByStatus;
     }
@@ -264,8 +243,8 @@ public class TasksEntity {
         this.statusesByStatus = statusesByStatus;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "priority", referencedColumnName = "priority_id", nullable = false)
+    @ManyToOne()
+    @JoinColumn(name = "priority", referencedColumnName = "priority_id", nullable = false,insertable = false, updatable = false)
     public PrioritiesEntity getPrioritiesByPriority() {
         return prioritiesByPriority;
     }
@@ -275,7 +254,7 @@ public class TasksEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false,insertable = false, updatable = false)
     public UsersEntity getUsersByUserId() {
         return usersByUserId;
     }
@@ -285,7 +264,7 @@ public class TasksEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "reporter", referencedColumnName = "user_id", nullable = false)
+    @JoinColumn(name = "reporter", referencedColumnName = "user_id", nullable = false,insertable = false, updatable = false)
     public UsersEntity getUsersByReporter() {
         return usersByReporter;
     }
