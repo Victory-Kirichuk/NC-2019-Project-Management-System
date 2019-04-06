@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class ProjectEntity {
     private int projectId;
     private String projectName;
-    private String porjectCode;
+    private String projectCode;
     private String summary;
 
     @Id
@@ -31,13 +31,13 @@ public class ProjectEntity {
     }
 
     @Basic
-    @Column(name = "porject_code")
-    public String getPorjectCode() {
-        return porjectCode;
+    @Column(name = "project_code")
+    public String getProjectCode() {
+        return projectCode;
     }
 
-    public void setPorjectCode(String porjectCode) {
-        this.porjectCode = porjectCode;
+    public void setProjectCode(String projectCode) {
+        this.projectCode = projectCode;
     }
 
     @Basic
@@ -59,7 +59,7 @@ public class ProjectEntity {
 
         if (projectId != that.projectId) return false;
         if (projectName != null ? !projectName.equals(that.projectName) : that.projectName != null) return false;
-        if (porjectCode != null ? !porjectCode.equals(that.porjectCode) : that.porjectCode != null) return false;
+        if (projectCode != null ? !projectCode.equals(that.projectCode) : that.projectCode != null) return false;
         if (summary != null ? !summary.equals(that.summary) : that.summary != null) return false;
 
         return true;
@@ -69,7 +69,7 @@ public class ProjectEntity {
     public int hashCode() {
         int result = projectId;
         result = 31 * result + (projectName != null ? projectName.hashCode() : 0);
-        result = 31 * result + (porjectCode != null ? porjectCode.hashCode() : 0);
+        result = 31 * result + (projectCode != null ? projectCode.hashCode() : 0);
         result = 31 * result + (summary != null ? summary.hashCode() : 0);
         return result;
     }
