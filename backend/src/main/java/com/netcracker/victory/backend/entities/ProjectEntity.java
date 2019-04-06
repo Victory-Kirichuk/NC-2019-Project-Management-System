@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "projects", schema = "pms", catalog = "")
-public class ProjectsEntity {
+public class ProjectEntity {
     private int projectId;
     private String projectName;
     private String porjectCode;
@@ -55,7 +55,7 @@ public class ProjectsEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ProjectsEntity that = (ProjectsEntity) o;
+        ProjectEntity that = (ProjectEntity) o;
 
         if (projectId != that.projectId) return false;
         if (projectName != null ? !projectName.equals(that.projectName) : that.projectName != null) return false;

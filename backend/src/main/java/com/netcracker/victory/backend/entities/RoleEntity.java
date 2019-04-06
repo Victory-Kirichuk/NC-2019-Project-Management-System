@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "roles", schema = "pms", catalog = "")
-public class RolesEntity {
+public class RoleEntity {
     private int roleId;
     private String role;
 
@@ -33,7 +33,7 @@ public class RolesEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RolesEntity that = (RolesEntity) o;
+        RoleEntity that = (RoleEntity) o;
 
         if (roleId != that.roleId) return false;
         if (role != null ? !role.equals(that.role) : that.role != null) return false;

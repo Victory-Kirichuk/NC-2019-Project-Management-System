@@ -5,7 +5,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "tasks", schema = "pms", catalog = "")
-public class TasksEntity {
+public class TaskEntity {
     private int taskId;
     private String ticketCode;
     private String taskName;
@@ -21,11 +21,11 @@ public class TasksEntity {
     private int userId;
     private String description;
     private int reporter;
-    private ProjectsEntity projectsByProjectId;
-    private StatusesEntity statusesByStatus;
-    private PrioritiesEntity prioritiesByPriority;
-    private UsersEntity usersByUserId;
-    private UsersEntity usersByReporter;
+    private ProjectEntity projectsByProjectId;
+    private StatusEntity statusesByStatus;
+    private PriorityEntity prioritiesByPriority;
+    private UserEntity usersByUserId;
+    private UserEntity usersByReporter;
 
     @Id
     @Column(name = "task_id")
@@ -182,7 +182,7 @@ public class TasksEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        TasksEntity that = (TasksEntity) o;
+        TaskEntity that = (TaskEntity) o;
 
         if (taskId != that.taskId) return false;
         if (projectId != that.projectId) return false;
@@ -225,51 +225,51 @@ public class TasksEntity {
 
     @ManyToOne
     @JoinColumn(name = "project_id", referencedColumnName = "project_id", nullable = false,insertable = false, updatable = false)
-    public ProjectsEntity getProjectsByProjectId() {
+    public ProjectEntity getProjectsByProjectId() {
         return projectsByProjectId;
     }
 
-    public void setProjectsByProjectId(ProjectsEntity projectsByProjectId) {
+    public void setProjectsByProjectId(ProjectEntity projectsByProjectId) {
         this.projectsByProjectId = projectsByProjectId;
     }
 
     @ManyToOne
     @JoinColumn(name = "status", referencedColumnName = "status_id", nullable = false,insertable = false, updatable = false)
-    public StatusesEntity getStatusesByStatus() {
+    public StatusEntity getStatusesByStatus() {
         return statusesByStatus;
     }
 
-    public void setStatusesByStatus(StatusesEntity statusesByStatus) {
+    public void setStatusesByStatus(StatusEntity statusesByStatus) {
         this.statusesByStatus = statusesByStatus;
     }
 
     @ManyToOne()
     @JoinColumn(name = "priority", referencedColumnName = "priority_id", nullable = false,insertable = false, updatable = false)
-    public PrioritiesEntity getPrioritiesByPriority() {
+    public PriorityEntity getPrioritiesByPriority() {
         return prioritiesByPriority;
     }
 
-    public void setPrioritiesByPriority(PrioritiesEntity prioritiesByPriority) {
+    public void setPrioritiesByPriority(PriorityEntity prioritiesByPriority) {
         this.prioritiesByPriority = prioritiesByPriority;
     }
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false,insertable = false, updatable = false)
-    public UsersEntity getUsersByUserId() {
+    public UserEntity getUsersByUserId() {
         return usersByUserId;
     }
 
-    public void setUsersByUserId(UsersEntity usersByUserId) {
+    public void setUsersByUserId(UserEntity usersByUserId) {
         this.usersByUserId = usersByUserId;
     }
 
     @ManyToOne
     @JoinColumn(name = "reporter", referencedColumnName = "user_id", nullable = false,insertable = false, updatable = false)
-    public UsersEntity getUsersByReporter() {
+    public UserEntity getUsersByReporter() {
         return usersByReporter;
     }
 
-    public void setUsersByReporter(UsersEntity usersByReporter) {
+    public void setUsersByReporter(UserEntity usersByReporter) {
         this.usersByReporter = usersByReporter;
     }
 }

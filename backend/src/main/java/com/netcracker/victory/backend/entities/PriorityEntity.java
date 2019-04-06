@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "priorities", schema = "pms", catalog = "")
-public class PrioritiesEntity {
+public class PriorityEntity {
     private int priorityId;
     private String priority;
 
@@ -33,7 +33,7 @@ public class PrioritiesEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PrioritiesEntity that = (PrioritiesEntity) o;
+        PriorityEntity that = (PriorityEntity) o;
 
         if (priorityId != that.priorityId) return false;
         if (priority != null ? !priority.equals(that.priority) : that.priority != null) return false;

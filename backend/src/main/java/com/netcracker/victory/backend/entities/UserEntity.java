@@ -3,15 +3,17 @@ package com.netcracker.victory.backend.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users", schema = "pms", catalog = "")
-public class UsersEntity {
+@Table(name = "users", schema = "pms")
+public class UserEntity {
+    @Id
+    @GeneratedValue(strategy =GenerationType.IDENTITY)
     private int userId;
     private String userName;
     private String birthday;
     private int role;
     private String email;
     private String password;
-    private RolesEntity rolesByRole;
+    private RoleEntity rolesByRole;
 
     @Id
     @Column(name = "user_id")
@@ -78,7 +80,7 @@ public class UsersEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        UsersEntity that = (UsersEntity) o;
+        UserEntity that = (UserEntity) o;
 
         if (userId != that.userId) return false;
         if (role != that.role) return false;
@@ -103,11 +105,11 @@ public class UsersEntity {
 
     @ManyToOne
     @JoinColumn(name = "role", referencedColumnName = "role_id", nullable = false,insertable = false, updatable = false)
-    public RolesEntity getRolesByRole() {
+    public RoleEntity getRolesByRole() {
         return rolesByRole;
     }
 
-    public void setRolesByRole(RolesEntity rolesByRole) {
+    public void setRolesByRole(RoleEntity rolesByRole) {
         this.rolesByRole = rolesByRole;
     }
 }
