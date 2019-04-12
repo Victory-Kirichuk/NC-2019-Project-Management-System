@@ -1,13 +1,12 @@
-package com.netcracker.victory.backend.repository;
+package com.netcracker.victory.backend.service;
 
 import com.netcracker.victory.backend.entities.ProjectEntity;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Repository
-public interface ProjectRepository extends CrudRepository<ProjectEntity,Integer> {
+@Service
+public interface ProjectService {
     List<ProjectEntity> findAll();
     ProjectEntity findProjectEntitiesByProjectCode (String projectCode);
     ProjectEntity findProjectEntitiesByProjectName (String projectName);

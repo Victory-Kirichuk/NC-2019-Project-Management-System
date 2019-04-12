@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface AttachRepository extends CrudRepository<AttachEntity,Integer> {
     List<AttachEntity> findAll();
-
+    AttachEntity save(AttachEntity attachEntity);
 }

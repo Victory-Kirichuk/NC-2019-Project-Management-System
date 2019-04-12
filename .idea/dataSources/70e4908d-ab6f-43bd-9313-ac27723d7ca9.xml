@@ -1171,7 +1171,6 @@
     <column id="297" parent="281" name="author">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="298" parent="281" name="creation">
