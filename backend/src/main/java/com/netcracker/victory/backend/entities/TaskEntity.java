@@ -4,28 +4,28 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "tasks", schema = "pms", catalog = "")
+@Table(name = "task", schema = "pms", catalog = "")
 public class TaskEntity {
     private int taskId;
-    private String ticketCode;
-    private String taskName;
+    private String code;
+    private String name;
     private int projectId;
-    private int status;
-    private int priority;
+    private int statusId;
+    private int priorityId;
     private Date createDate;
     private Date updateDate;
     private Date dueDate;
     private Date resolvedDate;
     private Date closedDate;
     private String estimation;
-    private int userId;
+    private int assign;
     private String description;
     private int reporter;
-    private ProjectEntity projectsByProjectId;
-    private StatusEntity statusesByStatus;
-    private PriorityEntity prioritiesByPriority;
-    private UserEntity usersByUserId;
-    private UserEntity usersByReporter;
+    private ProjectEntity projectByProjectId;
+    private StatusEntity statusByStatusId;
+    private PriorityEntity priorityByPriorityId;
+    private UserEntity userByAssign;
+    private UserEntity userByReporter;
 
     @Id
     @Column(name = "task_id")
@@ -38,23 +38,23 @@ public class TaskEntity {
     }
 
     @Basic
-    @Column(name = "ticketCode")
-    public String getTicketCode() {
-        return ticketCode;
+    @Column(name = "Code")
+    public String getCode() {
+        return code;
     }
 
-    public void setTicketCode(String ticketCode) {
-        this.ticketCode = ticketCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Basic
-    @Column(name = "task_name")
-    public String getTaskName() {
-        return taskName;
+    @Column(name = "name")
+    public String getName() {
+        return name;
     }
 
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Basic
@@ -68,23 +68,23 @@ public class TaskEntity {
     }
 
     @Basic
-    @Column(name = "status")
-    public int getStatus() {
-        return status;
+    @Column(name = "status_id")
+    public int getStatusId() {
+        return statusId;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
     }
 
     @Basic
-    @Column(name = "priority")
-    public int getPriority() {
-        return priority;
+    @Column(name = "priority_id")
+    public int getPriorityId() {
+        return priorityId;
     }
 
-    public void setPriority(int priority) {
-        this.priority = priority;
+    public void setPriorityId(int priorityId) {
+        this.priorityId = priorityId;
     }
 
     @Basic
@@ -148,13 +148,13 @@ public class TaskEntity {
     }
 
     @Basic
-    @Column(name = "user_id")
-    public int getUserId() {
-        return userId;
+    @Column(name = "assign")
+    public int getAssign() {
+        return assign;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setAssign(int assign) {
+        this.assign = assign;
     }
 
     @Basic
@@ -186,12 +186,12 @@ public class TaskEntity {
 
         if (taskId != that.taskId) return false;
         if (projectId != that.projectId) return false;
-        if (status != that.status) return false;
-        if (priority != that.priority) return false;
-        if (userId != that.userId) return false;
+        if (statusId != that.statusId) return false;
+        if (priorityId != that.priorityId) return false;
+        if (assign != that.assign) return false;
         if (reporter != that.reporter) return false;
-        if (ticketCode != null ? !ticketCode.equals(that.ticketCode) : that.ticketCode != null) return false;
-        if (taskName != null ? !taskName.equals(that.taskName) : that.taskName != null) return false;
+        if (code != null ? !code.equals(that.code) : that.code != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (createDate != null ? !createDate.equals(that.createDate) : that.createDate != null) return false;
         if (updateDate != null ? !updateDate.equals(that.updateDate) : that.updateDate != null) return false;
         if (dueDate != null ? !dueDate.equals(that.dueDate) : that.dueDate != null) return false;
@@ -206,18 +206,18 @@ public class TaskEntity {
     @Override
     public int hashCode() {
         int result = taskId;
-        result = 31 * result + (ticketCode != null ? ticketCode.hashCode() : 0);
-        result = 31 * result + (taskName != null ? taskName.hashCode() : 0);
+        result = 31 * result + (code != null ? code.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + projectId;
-        result = 31 * result + status;
-        result = 31 * result + priority;
+        result = 31 * result + statusId;
+        result = 31 * result + priorityId;
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         result = 31 * result + (dueDate != null ? dueDate.hashCode() : 0);
         result = 31 * result + (resolvedDate != null ? resolvedDate.hashCode() : 0);
         result = 31 * result + (closedDate != null ? closedDate.hashCode() : 0);
         result = 31 * result + (estimation != null ? estimation.hashCode() : 0);
-        result = 31 * result + userId;
+        result = 31 * result + assign;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + reporter;
         return result;
@@ -225,51 +225,51 @@ public class TaskEntity {
 
     @ManyToOne
     @JoinColumn(name = "project_id", referencedColumnName = "project_id", nullable = false,insertable = false, updatable = false)
-    public ProjectEntity getProjectsByProjectId() {
-        return projectsByProjectId;
+    public ProjectEntity getProjectByProjectId() {
+        return projectByProjectId;
     }
 
-    public void setProjectsByProjectId(ProjectEntity projectsByProjectId) {
-        this.projectsByProjectId = projectsByProjectId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "status", referencedColumnName = "status_id", nullable = false,insertable = false, updatable = false)
-    public StatusEntity getStatusesByStatus() {
-        return statusesByStatus;
-    }
-
-    public void setStatusesByStatus(StatusEntity statusesByStatus) {
-        this.statusesByStatus = statusesByStatus;
-    }
-
-    @ManyToOne()
-    @JoinColumn(name = "priority", referencedColumnName = "priority_id", nullable = false,insertable = false, updatable = false)
-    public PriorityEntity getPrioritiesByPriority() {
-        return prioritiesByPriority;
-    }
-
-    public void setPrioritiesByPriority(PriorityEntity prioritiesByPriority) {
-        this.prioritiesByPriority = prioritiesByPriority;
+    public void setProjectByProjectId(ProjectEntity projectByProjectId) {
+        this.projectByProjectId = projectByProjectId;
     }
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false,insertable = false, updatable = false)
-    public UserEntity getUsersByUserId() {
-        return usersByUserId;
+    @JoinColumn(name = "status_id", referencedColumnName = "status_id",nullable = false,insertable = false, updatable = false)
+    public StatusEntity getStatusByStatusId() {
+        return statusByStatusId;
     }
 
-    public void setUsersByUserId(UserEntity usersByUserId) {
-        this.usersByUserId = usersByUserId;
+    public void setStatusByStatusId(StatusEntity statusByStatusId) {
+        this.statusByStatusId = statusByStatusId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "priority_id", referencedColumnName = "priority_id", nullable = false,insertable = false, updatable = false)
+    public PriorityEntity getPriorityByPriorityId() {
+        return priorityByPriorityId;
+    }
+
+    public void setPriorityByPriorityId(PriorityEntity priorityByPriorityId) {
+        this.priorityByPriorityId = priorityByPriorityId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "assign", referencedColumnName = "user_id", nullable = false,insertable = false, updatable = false)
+    public UserEntity getUserByAssign() {
+        return userByAssign;
+    }
+
+    public void setUserByAssign(UserEntity userByAssign) {
+        this.userByAssign = userByAssign;
     }
 
     @ManyToOne
     @JoinColumn(name = "reporter", referencedColumnName = "user_id", nullable = false,insertable = false, updatable = false)
-    public UserEntity getUsersByReporter() {
-        return usersByReporter;
+    public UserEntity getUserByReporter() {
+        return userByReporter;
     }
 
-    public void setUsersByReporter(UserEntity usersByReporter) {
-        this.usersByReporter = usersByReporter;
+    public void setUserByReporter(UserEntity userByReporter) {
+        this.userByReporter = userByReporter;
     }
 }

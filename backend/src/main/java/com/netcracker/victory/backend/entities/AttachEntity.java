@@ -8,7 +8,7 @@ import java.sql.Date;
 public class AttachEntity {
     private int attachId;
     private String attach;
-    private Date dateCr;
+    private Date dateCreation;
     private Integer taskId;
 
     @Id
@@ -32,13 +32,13 @@ public class AttachEntity {
     }
 
     @Basic
-    @Column(name = "date_cr")
-    public Date getDateCr() {
-        return dateCr;
+    @Column(name = "date_creation")
+    public Date getDateCreation() {
+        return dateCreation;
     }
 
-    public void setDateCr(Date dateCr) {
-        this.dateCr = dateCr;
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
     }
 
     @Basic
@@ -60,7 +60,7 @@ public class AttachEntity {
 
         if (attachId != that.attachId) return false;
         if (attach != null ? !attach.equals(that.attach) : that.attach != null) return false;
-        if (dateCr != null ? !dateCr.equals(that.dateCr) : that.dateCr != null) return false;
+        if (dateCreation != null ? !dateCreation.equals(that.dateCreation) : that.dateCreation != null) return false;
         if (taskId != null ? !taskId.equals(that.taskId) : that.taskId != null) return false;
 
         return true;
@@ -70,7 +70,7 @@ public class AttachEntity {
     public int hashCode() {
         int result = attachId;
         result = 31 * result + (attach != null ? attach.hashCode() : 0);
-        result = 31 * result + (dateCr != null ? dateCr.hashCode() : 0);
+        result = 31 * result + (dateCreation != null ? dateCreation.hashCode() : 0);
         result = 31 * result + (taskId != null ? taskId.hashCode() : 0);
         return result;
     }

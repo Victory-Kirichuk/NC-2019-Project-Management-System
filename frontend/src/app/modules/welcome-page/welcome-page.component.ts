@@ -3,10 +3,10 @@ import {BsModalRef, BsModalService} from "ngx-bootstrap";
 
 @Component({
   selector: 'app-admin-page',
-  templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.css']
+  templateUrl: './welcome-page.component.html',
+  styleUrls: ['./welcome-page.component.css']
 })
-export class AdminPageComponent implements OnInit {
+export class WelcomePageComponent implements OnInit {
   private modalRef: BsModalRef;
 
 
@@ -22,5 +22,9 @@ export class AdminPageComponent implements OnInit {
 
    closeModal(): void {
     this.modalRef.hide();
+  }
+
+  addProject() {
+
   }
 }

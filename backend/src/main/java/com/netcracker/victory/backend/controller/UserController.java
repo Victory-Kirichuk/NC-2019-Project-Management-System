@@ -3,14 +3,13 @@ package com.netcracker.victory.backend.controller;
 import com.netcracker.victory.backend.entities.UserEntity;
 import com.netcracker.victory.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/backend/api/user")
 public class UserController {
 
 @Autowired

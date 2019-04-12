@@ -6,20 +6,19 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import { LoginPageComponent } from './modules/login-page/login-page.component';
-import { AdminPageComponent } from './modules/admin-page/admin-page.component';
+import { WelcomePageComponent } from './modules/welcome-page/welcome-page.component';
 
 import {BsDropdownModule, ModalModule, TooltipModule} from "ngx-bootstrap";
-import { NavComponent } from './nav/nav.component';
-import { ProjectPageComponent } from './project-page/project-page.component';
-
+import { NavComponent } from './modules/Layout/components/nav/nav.component';
+import { EdProjectPageComponent } from './modules/ed_project-page/ed-project-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    AdminPageComponent,
+    WelcomePageComponent,
     NavComponent,
-    ProjectPageComponent
+    EdProjectPageComponent
   ],
   imports: [
     BrowserModule,

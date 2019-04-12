@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="pms@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.11">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.15">
     <root id="1">
       <ServerVersion>8.0.15</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1115,12 +1115,12 @@
     </collation>
     <table id="280" parent="6" name="attach"/>
     <table id="281" parent="6" name="comment"/>
-    <table id="282" parent="6" name="priorities"/>
-    <table id="283" parent="6" name="projects"/>
-    <table id="284" parent="6" name="roles"/>
-    <table id="285" parent="6" name="statuses"/>
-    <table id="286" parent="6" name="tasks"/>
-    <table id="287" parent="6" name="users"/>
+    <table id="282" parent="6" name="priority"/>
+    <table id="283" parent="6" name="project"/>
+    <table id="284" parent="6" name="role"/>
+    <table id="285" parent="6" name="status"/>
+    <table id="286" parent="6" name="task"/>
+    <table id="287" parent="6" name="user"/>
     <column id="288" parent="280" name="attach_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
@@ -1132,7 +1132,7 @@
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="280" name="date_cr">
+    <column id="290" parent="280" name="date_creation">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -1154,7 +1154,7 @@
     <foreign-key id="294" parent="280" name="task">
       <ColNames>task_id</ColNames>
       <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>tasks</RefTableName>
+      <RefTableName>task</RefTableName>
       <RefColNames>task_id</RefColNames>
     </foreign-key>
     <column id="295" parent="281" name="comment_id">
@@ -1200,13 +1200,13 @@
     <foreign-key id="303" parent="281" name="author">
       <ColNames>author</ColNames>
       <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>users</RefTableName>
+      <RefTableName>user</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
     <foreign-key id="304" parent="281" name="task_fk">
       <ColNames>task_id</ColNames>
       <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>tasks</RefTableName>
+      <RefTableName>task</RefTableName>
       <RefColNames>task_id</RefColNames>
     </foreign-key>
     <column id="305" parent="282" name="priority_id">
@@ -1277,11 +1277,12 @@
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="317" parent="285" name="status">
       <Position>2</Position>
-      <DataType>varchar(45)|0s</DataType>
+      <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1297,13 +1298,13 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="286" name="ticketCode">
+    <column id="320" parent="286" name="Code">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="286" name="task_name">
+    <column id="321" parent="286" name="name">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1315,13 +1316,13 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="323" parent="286" name="status">
+    <column id="323" parent="286" name="status_id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="286" name="priority">
+    <column id="324" parent="286" name="priority_id">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1357,7 +1358,7 @@
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="286" name="user_id">
+    <column id="331" parent="286" name="assign">
       <Position>13</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1379,15 +1380,15 @@
       <Type>btree</Type>
     </index>
     <index id="335" parent="286" name="status_idx">
-      <ColNames>status</ColNames>
+      <ColNames>status_id</ColNames>
       <Type>btree</Type>
     </index>
     <index id="336" parent="286" name="priority_idx">
-      <ColNames>priority</ColNames>
+      <ColNames>priority_id</ColNames>
       <Type>btree</Type>
     </index>
     <index id="337" parent="286" name="user_idx">
-      <ColNames>user_id</ColNames>
+      <ColNames>assign</ColNames>
       <Type>btree</Type>
     </index>
     <index id="338" parent="286" name="reporter_idx">
@@ -1402,31 +1403,31 @@
     <foreign-key id="340" parent="286" name="project">
       <ColNames>project_id</ColNames>
       <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>projects</RefTableName>
+      <RefTableName>project</RefTableName>
       <RefColNames>project_id</RefColNames>
     </foreign-key>
     <foreign-key id="341" parent="286" name="status">
-      <ColNames>status</ColNames>
+      <ColNames>status_id</ColNames>
       <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>statuses</RefTableName>
+      <RefTableName>status</RefTableName>
       <RefColNames>status_id</RefColNames>
     </foreign-key>
     <foreign-key id="342" parent="286" name="priority">
-      <ColNames>priority</ColNames>
+      <ColNames>priority_id</ColNames>
       <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>priorities</RefTableName>
+      <RefTableName>priority</RefTableName>
       <RefColNames>priority_id</RefColNames>
     </foreign-key>
-    <foreign-key id="343" parent="286" name="user">
-      <ColNames>user_id</ColNames>
+    <foreign-key id="343" parent="286" name="assign">
+      <ColNames>assign</ColNames>
       <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>users</RefTableName>
+      <RefTableName>user</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
     <foreign-key id="344" parent="286" name="reporter">
       <ColNames>reporter</ColNames>
       <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>users</RefTableName>
+      <RefTableName>user</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
     <column id="345" parent="287" name="user_id">
@@ -1435,49 +1436,54 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="346" parent="287" name="user_name">
+    <column id="346" parent="287" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="287" name="birthday">
+    <column id="347" parent="287" name="surname">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="287" name="role">
+    <column id="348" parent="287" name="birthday">
       <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="287" name="email">
+    <column id="349" parent="287" name="role">
       <Position>5</Position>
-      <DataType>varchar(45)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="287" name="password">
+    <column id="350" parent="287" name="email">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="351" parent="287" name="role_idx">
+    <column id="351" parent="287" name="password">
+      <Position>7</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="352" parent="287" name="role_idx">
       <ColNames>role</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="352" parent="287" name="PRIMARY">
+    <key id="353" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="353" parent="287" name="role">
+    <foreign-key id="354" parent="287" name="role">
       <ColNames>role</ColNames>
       <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>roles</RefTableName>
+      <RefTableName>role</RefTableName>
       <RefColNames>role_id</RefColNames>
     </foreign-key>
   </database-model>

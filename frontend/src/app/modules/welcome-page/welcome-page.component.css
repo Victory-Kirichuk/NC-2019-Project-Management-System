@@ -1,0 +1,61 @@
+
+* {box-sizing: border-box;}
+
+.form-control{text-align: left}
+.input-group {text-align: right}
+button {
+
+  margin-top: auto;
+
+}
+
+
+.modal-body,.modal-footer,.modal-header,.form-group{background-color: white;}
+
+@media screen and (max-width: 600px) {
+  table td:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+
+
+
+
+
+.d7 form {
+  width: auto;
+  float: right;
+  margin-right: 30px;
+}
+.d7 input {
+  width: 250px;
+  height: 42px;
+  padding-left: 15px;
+  border-radius: 42px;
+  border: 2px solid #324b4e;
+  background-color: transparent;
+  outline: none;
+  position: relative;
+  transition: .3s linear;
+}
+.d7 input:focus {
+  width: 300px;
+}
+.d7 button {
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: none;
+  position: absolute;
+  top: -2px;
+  right: 0;
+}
+.d7 button:before{
+  content: "\f002";
+  font-family: FontAwesome;
+  color: #324b4e;
+}

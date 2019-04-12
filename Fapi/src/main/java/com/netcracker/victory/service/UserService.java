@@ -1,8 +1,6 @@
 package com.netcracker.victory.service;
 
 
-import com.netcracker.victory.backend.entities.UserEntity;
-
 import java.util.List;
 
 public interface UserService {

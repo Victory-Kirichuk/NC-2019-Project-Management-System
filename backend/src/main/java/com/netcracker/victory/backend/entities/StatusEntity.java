@@ -3,7 +3,7 @@ package com.netcracker.victory.backend.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "statuses", schema = "pms", catalog = "")
+@Table(name = "status", schema = "pms", catalog = "")
 public class StatusEntity {
     private int statusId;
     private String status;

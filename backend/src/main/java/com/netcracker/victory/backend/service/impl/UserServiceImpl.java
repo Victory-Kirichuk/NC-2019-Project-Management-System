@@ -16,22 +16,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserEntity> findAll() {
-        return null;
+        return (List<UserEntity>) userRepository.findAll();
     }
 
     @Override
     public UserEntity findUserEntitiesByEmail(String email) {
-        return null;
+         return userRepository.findUserEntitiesByEmail(email);
     }
 
     @Override
     public UserEntity save(UserEntity userEntity) {
-        return null;
+        return userRepository.save(userEntity);
     }
 
-    @Override
-    public void delete(int user_id) {
-
-    }
 }
 

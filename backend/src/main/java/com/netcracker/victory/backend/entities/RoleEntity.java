@@ -3,7 +3,7 @@ package com.netcracker.victory.backend.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "roles", schema = "pms", catalog = "")
+@Table(name = "role", schema = "pms", catalog = "")
 public class RoleEntity {
     private int roleId;
     private String role;
