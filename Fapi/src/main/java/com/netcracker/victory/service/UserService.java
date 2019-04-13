@@ -1,11 +1,15 @@
 package com.netcracker.victory.service;
 
 
-import java.util.List;
+import com.netcracker.victory.backend.entities.UserEntity;
+import org.springframework.stereotype.Service;
 
-public interface UserService {
+import java.util.List;
+@Service
+public interface UserService  {
     List<UserEntity> findAll();
     UserEntity  findUserEntitiesByEmail(String email);
     UserEntity save(UserEntity userEntity);
-    void delete (int user_id);
+
+
 }
