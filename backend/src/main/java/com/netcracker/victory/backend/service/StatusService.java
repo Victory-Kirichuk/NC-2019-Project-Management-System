@@ -8,4 +8,5 @@ import java.util.List;
 @Service
 public interface StatusService {
     List<StatusEntity> findAll();
+    StatusEntity findStatusById(int statusId);
 }

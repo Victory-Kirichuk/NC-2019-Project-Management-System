@@ -1,13 +1,13 @@
 package com.netcracker.victory.service;
 
 import com.netcracker.victory.models.ProjectModel;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-public interface ProjectService {
+@Service
+public interface ProjectDataService {
     List<ProjectModel> getAll();
-    ProjectModel getProjectById(int projectId);
-    ProjectModel getProjectByCode (String projectCode);
+    ProjectModel getProjectByProjectCode (String projectCode);
     ProjectModel getProjectByName(String projectName);
     ProjectModel saveProject(ProjectModel project);
 }

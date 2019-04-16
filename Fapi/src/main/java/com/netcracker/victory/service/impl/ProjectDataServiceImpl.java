@@ -1,15 +1,16 @@
 package com.netcracker.victory.service.impl;
 
 import com.netcracker.victory.models.ProjectModel;
-import com.netcracker.victory.service.ProjectService;
+import com.netcracker.victory.service.ProjectDataService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-public class ProjectServiceImpl implements ProjectService {
+@Service
+public class ProjectDataServiceImpl implements ProjectDataService {
     @Value("${backend.server.url}")
     private String backendServerUrl;
     @Override
@@ -20,19 +21,14 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public ProjectModel getProjectById(int projectId) {
-        RestTemplate restTemplate = new RestTemplate();
-
-        return  restTemplate.getForObject(backendServerUrl + "/backend/api/project/"+projectId, ProjectModel.class);
-    }
-
-    @Override
-    public ProjectModel getProjectByCode(String projectCode) {
+    public ProjectModel getProjectByProjectCode(String projectCode) {
         RestTemplate restTemplate = new RestTemplate();
 
         return  restTemplate.getForObject(backendServerUrl + "/backend/api/project/"+projectCode, ProjectModel.class);
 
     }
+
+
 
     @Override
     public ProjectModel getProjectByName(String projectName) {

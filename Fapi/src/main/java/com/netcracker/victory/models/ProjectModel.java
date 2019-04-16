@@ -45,19 +45,5 @@ public class ProjectModel {
         this.summary = summary;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ProjectModel projectModel = (ProjectModel) o;
-        return projectId == projectModel.projectId &&
-                projectName.equals(projectModel.projectName) &&
-                projectCode.equals(projectModel.projectCode) &&
-                summary.equals(projectModel.summary);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(projectId, projectName, projectCode, summary);
-    }
 }

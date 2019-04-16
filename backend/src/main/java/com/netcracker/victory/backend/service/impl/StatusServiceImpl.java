@@ -21,4 +21,9 @@ public class StatusServiceImpl implements StatusService {
     public List<StatusEntity> findAll() {
         return (List<StatusEntity>) statusRepository.findAll() ;
     }
+
+    @Override
+    public StatusEntity findStatusById(int statusId) {
+        return statusRepository.findStatusByStatusId(statusId) ;
+    }
 }
