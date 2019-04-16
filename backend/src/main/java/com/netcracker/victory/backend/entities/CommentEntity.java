@@ -13,6 +13,7 @@ public class CommentEntity {
     private Integer taskId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "comment_id")
     public int getCommentId() {
         return commentId;

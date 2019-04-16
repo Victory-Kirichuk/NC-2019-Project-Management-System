@@ -9,6 +9,7 @@ public class PriorityEntity {
     private String priority;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "priority_id")
     public int getPriorityId() {
         return priorityId;

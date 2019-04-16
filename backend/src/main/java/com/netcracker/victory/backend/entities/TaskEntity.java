@@ -28,6 +28,7 @@ public class TaskEntity {
     private UserEntity userByReporter;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "task_id")
     public int getTaskId() {
         return taskId;

@@ -16,6 +16,7 @@ public class UserEntity {
     private RoleEntity roleByRole;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     public int getUserId() {
         return userId;

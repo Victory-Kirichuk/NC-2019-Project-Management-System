@@ -9,6 +9,7 @@ public class StatusEntity {
     private String status;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "status_id")
     public int getStatusId() {
         return statusId;
