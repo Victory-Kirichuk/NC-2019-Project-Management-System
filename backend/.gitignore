@@ -5,7 +5,7 @@
 .apt_generated
 .classpath
 .factorypath
-.project
+.projectModel
 .settings
 .springBeans
 .sts4-cache

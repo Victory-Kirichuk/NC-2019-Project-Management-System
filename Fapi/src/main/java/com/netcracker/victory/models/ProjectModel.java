@@ -3,7 +3,7 @@ package com.netcracker.victory.models;
 
 import java.util.Objects;
 
-public class Project {
+public class ProjectModel {
     private int projectId;
     private String projectName;
     private String projectCode;
@@ -49,11 +49,11 @@ public class Project {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Project project = (Project) o;
-        return projectId == project.projectId &&
-                projectName.equals(project.projectName) &&
-                projectCode.equals(project.projectCode) &&
-                summary.equals(project.summary);
+        ProjectModel projectModel = (ProjectModel) o;
+        return projectId == projectModel.projectId &&
+                projectName.equals(projectModel.projectName) &&
+                projectCode.equals(projectModel.projectCode) &&
+                summary.equals(projectModel.summary);
     }
 
     @Override
