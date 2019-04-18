@@ -23,8 +23,7 @@ public class ProjectDataServiceImpl implements ProjectDataService {
     @Override
     public ProjectModel getProjectByProjectCode(String projectCode) {
         RestTemplate restTemplate = new RestTemplate();
-
-        return  restTemplate.getForObject(backendServerUrl + "/backend/api/project/"+projectCode, ProjectModel.class);
+        return  restTemplate.getForObject(backendServerUrl + "/backend/api/project/code/"+projectCode, ProjectModel.class);
 
     }
 
@@ -34,7 +33,7 @@ public class ProjectDataServiceImpl implements ProjectDataService {
     public ProjectModel getProjectByName(String projectName) {
         RestTemplate restTemplate = new RestTemplate();
 
-        return  restTemplate.getForObject(backendServerUrl + "/backend/api/project/"+projectName, ProjectModel.class);
+        return  restTemplate.getForObject(backendServerUrl + "/backend/api/project/name/"+projectName, ProjectModel.class);
 
     }
 

@@ -32,8 +32,8 @@ public class ProjectDataController {
 
     @RequestMapping (value = "/code/{projectCode}",method = RequestMethod.GET)
     public ResponseEntity<ProjectModel> getProjectByProjectCode(@PathVariable(name ="projectCode")String projectCode)
-    {ProjectModel projectEntity=projectDataService.getProjectByProjectCode(projectCode);
-        return  ResponseEntity.ok(projectEntity);}
+    {ProjectModel projectModel=projectDataService.getProjectByProjectCode(projectCode);
+        return  ResponseEntity.ok(projectModel);}
 
 
 

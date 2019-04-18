@@ -28,8 +28,9 @@ public class StatusDataServiceImpl implements StatusDataService {
     }
 
     @Override
-    public StatusModel getStatusById(int statusId) {
-        ;
+    public StatusModel getStatusByStatusId(int statusId) {
+        RestTemplate restTemplate=new RestTemplate();
+        return restTemplate.getForObject(backendServerUrl+"/backend/api/status/"+statusId,StatusModel.class);
     }
 
 

@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface StatusDataService {
     List<StatusModel> getAll();
-    StatusModel getStatusById(int statusId);
+    StatusModel getStatusByStatusId(int statusId);
 
 
 }

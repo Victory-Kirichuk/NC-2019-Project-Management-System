@@ -7,4 +7,5 @@ import java.util.List;
 @Service
 public interface RoleService {
     List<RoleEntity> findAll();
+    RoleEntity findRoleEntityByRoleId(int roleId);
 }

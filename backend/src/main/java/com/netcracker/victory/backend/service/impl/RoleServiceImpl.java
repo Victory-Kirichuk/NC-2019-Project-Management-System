@@ -18,4 +18,9 @@ public class RoleServiceImpl implements RoleService {
     public List<RoleEntity> findAll() {
         return (List<RoleEntity>) roleRepository.findAll() ;
     }
+
+    @Override
+    public RoleEntity findRoleEntityByRoleId(int roleId) {
+        return roleRepository.findRoleEntityByRoleId(roleId);
+    }
 }
