@@ -13,16 +13,19 @@ import java.util.List;
 public class TaskController {
     @Autowired
     public TaskService taskService;
-    @RequestMapping (value = "/code/{Code}",method = RequestMethod.GET)
-    public ResponseEntity<TaskEntity> getTaskEntityByCode(@PathVariable(name ="Code")String Code)
-    {TaskEntity taskEntity=taskService.findTaskEntityByCode(Code);
+    @RequestMapping (value = "/code/{code}",method = RequestMethod.GET)
+    public ResponseEntity<TaskEntity> getTaskEntityByCode(@PathVariable(name ="code")String code)
+    {TaskEntity taskEntity=taskService.findTaskEntityByCode(code);
 
         return  ResponseEntity.ok(taskEntity);}
+
 
     @RequestMapping (value = "/name/{name}",method = RequestMethod.GET)
     public ResponseEntity<TaskEntity> getTaskEntityByName(@PathVariable(name ="name")String name)
     {TaskEntity taskEntity=taskService.findTaskEntityByCode(name);
         return  ResponseEntity.ok(taskEntity);}
+
+
 
 
 

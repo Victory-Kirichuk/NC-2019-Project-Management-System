@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface TaskService {
     List<TaskEntity> findAll();
-    TaskEntity findTaskEntityByCode (String Code);
+    TaskEntity findTaskEntityByCode (String code);
     TaskEntity findTaskEntityByName (String name);
     TaskEntity findTaskEntityByAssign (int assign);
 

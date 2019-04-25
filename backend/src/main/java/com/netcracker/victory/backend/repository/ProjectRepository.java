@@ -12,4 +12,6 @@ public interface ProjectRepository extends CrudRepository<ProjectEntity,Integer>
     ProjectEntity findProjectEntitiesByProjectCode (String projectCode);
     ProjectEntity findProjectEntitiesByProjectName (String projectName);
     ProjectEntity save(ProjectEntity projectEntity);
+
+    ProjectEntity findProjectEntitiesByProjectId(int projectId);
 }

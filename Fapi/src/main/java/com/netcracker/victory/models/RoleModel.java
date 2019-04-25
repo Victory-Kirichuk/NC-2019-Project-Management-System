@@ -4,6 +4,9 @@ import java.util.List;
 
 public class RoleModel {
     private int roleId;
+    private String role;
+
+
 
     public String getRole() {
         return role;
@@ -13,7 +16,7 @@ public class RoleModel {
         this.role = role;
     }
 
-    private String role;
+
 
     public int getRoleId() {
         return roleId;

@@ -27,15 +27,22 @@ public class ProjectDataServiceImpl implements ProjectDataService {
 
     }
 
-
-
     @Override
-    public ProjectModel getProjectByName(String projectName) {
+    public ProjectModel getProjectByProjectName(String projectName) {
         RestTemplate restTemplate = new RestTemplate();
-
         return  restTemplate.getForObject(backendServerUrl + "/backend/api/project/name/"+projectName, ProjectModel.class);
 
     }
+
+    @Override
+    public ProjectModel getProjectByProjectId(int projectId) {
+        RestTemplate restTemplate = new RestTemplate();
+        return  restTemplate.getForObject(backendServerUrl + "/backend/api/project/"+projectId, ProjectModel.class);
+
+    }
+
+
+
 
     @Override
     public ProjectModel saveProject(ProjectModel project) {

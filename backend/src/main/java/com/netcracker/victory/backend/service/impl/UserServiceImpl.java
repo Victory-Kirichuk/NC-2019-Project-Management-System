@@ -25,6 +25,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserEntity findUserEntitiesByUserId(int userId) {
+        return userRepository.findUserEntitiesByUserId(userId);
+    }
+
+    @Override
+    public UserEntity findUserEntitiesByEmailAndPassword(String email, String password) {
+        return userRepository.findUserEntitiesByEmailAndPassword(email,password);
+    }
+
+    @Override
     public UserEntity save(UserEntity userEntity) {
         return userRepository.save(userEntity);
     }

@@ -10,5 +10,6 @@ public interface ProjectService {
     List<ProjectEntity> findAll();
     ProjectEntity findProjectEntitiesByProjectCode (String projectCode);
     ProjectEntity findProjectEntitiesByProjectName (String projectName);
+    ProjectEntity findProjectEntitiesByProjectId (int projectId);
     ProjectEntity save(ProjectEntity projectEntity);
 }

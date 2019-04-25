@@ -22,6 +22,13 @@ public class UserController {
 
 
 
+  @RequestMapping (value = "/{userId}",method = RequestMethod.GET)
+  public ResponseEntity<UserEntity> getUserByUserId(@PathVariable(name ="userId")int userId)
+  {UserEntity userEntity=userService.findUserEntitiesByUserId(userId);
+    return  ResponseEntity.ok(userEntity);}
+
+
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<UserEntity> getAllUserEntities() {
         return userService.findAll();

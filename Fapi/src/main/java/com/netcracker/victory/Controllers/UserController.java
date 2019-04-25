@@ -1,32 +1,44 @@
 package com.netcracker.victory.Controllers;
 
 
+import com.netcracker.victory.models.UserAssigneeModel;
+import com.netcracker.victory.models.UserModel;
 import com.netcracker.victory.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController("UController")
-@RequestMapping("/backend/api/user")
+@RequestMapping("/user")
 public class UserController {
 
 @Autowired
     private UserService userService;
-//@PreAuthorize("hashRole('ADMIN')")
-    @GetMapping
-    public String getAllUserEntities(){return "USER";}
+@GetMapping
+@RequestMapping
+public ResponseEntity<List<UserModel>> getStatuses(){
 
-//    @GetMapping
-//    public List<UserEntity> getAllUserEntities(){return userService.findAll();}
-//    @GetMapping("/login/{email}")
-//    public UserEntity getUserEntityByEmail(@PathVariable String email){return userService.findUserEntitiesByEmail(email);}
-//    @RequestMapping(value = "/signup", method = RequestMethod.POST,produces = "application/json")
-//    public UserEntity saveUser(@RequestBody UserEntity userEntity)
-//    {
-//        return userService.save(userEntity);
-//    }
+    return ResponseEntity.ok(userService.getAll());
+
+
+}
+@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public ResponseEntity<UserModel> getUserByUserId(@PathVariable(name = "userId")int userId)
+    {UserModel userModel=userService.getUserByUserId(userId);
+        return ResponseEntity.ok(userModel);
+    }
+
+    @RequestMapping(value = "/login/{email}", method = RequestMethod.GET)
+    public ResponseEntity<UserModel> getUserByEmail(@PathVariable(name = "email")String email)
+    {UserModel userModel=userService.getUserByEmail(email);
+        return ResponseEntity.ok(userModel);
+    }
+
+
+
 }
 
 

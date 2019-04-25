@@ -4,13 +4,12 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "user", schema = "pms", catalog = "")
+@Table(name = "user", schema = "pms")
 public class UserEntity {
     private int userId;
     private String name;
     private String surname;
-    private Date birthday;
-    private Integer role;
+       private Integer role;
     private String email;
     private String password;
     private RoleEntity roleByRole;
@@ -44,16 +43,6 @@ public class UserEntity {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    @Basic
-    @Column(name = "birthday")
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
     }
 
     @Basic
@@ -96,8 +85,7 @@ public class UserEntity {
         if (userId != that.userId) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (surname != null ? !surname.equals(that.surname) : that.surname != null) return false;
-        if (birthday != null ? !birthday.equals(that.birthday) : that.birthday != null) return false;
-        if (role != null ? !role.equals(that.role) : that.role != null) return false;
+                if (role != null ? !role.equals(that.role) : that.role != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
 
@@ -109,7 +97,7 @@ public class UserEntity {
         int result = userId;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
+
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);

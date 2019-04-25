@@ -1125,6 +1125,7 @@
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="289" parent="280" name="attach">
@@ -1161,6 +1162,7 @@
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="296" parent="281" name="comment">
@@ -1202,7 +1204,7 @@
       <RefTableName>user</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <foreign-key id="304" parent="281" name="task_fk">
+    <foreign-key id="304" parent="281" name="task1">
       <ColNames>task_id</ColNames>
       <RefSchemaName>pms</RefSchemaName>
       <RefTableName>task</RefTableName>
@@ -1329,12 +1331,12 @@
     </column>
     <column id="325" parent="286" name="create_date">
       <Position>7</Position>
-      <DataType>date|0s</DataType>
+      <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="326" parent="286" name="update_date">
       <Position>8</Position>
-      <DataType>date|0s</DataType>
+      <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="327" parent="286" name="due_date">
@@ -1344,17 +1346,17 @@
     </column>
     <column id="328" parent="286" name="resolved_date">
       <Position>10</Position>
-      <DataType>date|0s</DataType>
+      <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="329" parent="286" name="closed_date">
       <Position>11</Position>
-      <DataType>date|0s</DataType>
+      <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="330" parent="286" name="estimation">
       <Position>12</Position>
-      <DataType>varchar(45)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="331" parent="286" name="assign">
@@ -1386,7 +1388,7 @@
       <ColNames>priority_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="337" parent="286" name="user_idx">
+    <index id="337" parent="286" name="assign_idx">
       <ColNames>assign</ColNames>
       <Type>btree</Type>
     </index>
@@ -1433,6 +1435,7 @@
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="346" parent="287" name="name">
@@ -1447,39 +1450,34 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="287" name="birthday">
+    <column id="348" parent="287" name="role">
       <Position>4</Position>
-      <DataType>date|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="287" name="role">
+    <column id="349" parent="287" name="email">
       <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="287" name="email">
+    <column id="350" parent="287" name="password">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="351" parent="287" name="password">
-      <Position>7</Position>
-      <DataType>varchar(45)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="352" parent="287" name="role_idx">
+    <index id="351" parent="287" name="role_idx">
       <ColNames>role</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="353" parent="287" name="PRIMARY">
+    <key id="352" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="354" parent="287" name="role">
+    <foreign-key id="353" parent="287" name="role">
       <ColNames>role</ColNames>
       <RefSchemaName>pms</RefSchemaName>
       <RefTableName>role</RefTableName>

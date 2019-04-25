@@ -27,6 +27,10 @@ public class ProjectController {
     {ProjectEntity projectEntity=projectService.findProjectEntitiesByProjectCode(projectCode);
         return  ResponseEntity.ok(projectEntity);}
 
+    @RequestMapping (value = "/{projectId}",method = RequestMethod.GET)
+    public ResponseEntity<ProjectEntity> getProjectByProjectCode(@PathVariable(name ="projectId")int projectId)
+    {ProjectEntity projectEntity=projectService.findProjectEntitiesByProjectId(projectId);
+        return  ResponseEntity.ok(projectEntity);}
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<ProjectEntity> getAllProjectEntities() {

@@ -15,13 +15,15 @@
           <form (submit)="addProject()" role="form">
             <div class="form-group">
               <label >Code</label>
-              <input type="text"  class="form-control" id="Code">
+              <input type="text"  [(ngModel)]="newProject.projectCode" class="form-control" id="code">
+              <label >Name</label>
+              <input type="text"  [(ngModel)]="newProject.projectName" class="form-control" id="pName" >
               <label >Summary</label>
-              <input type="text" class="form-control" id="Summary">
+              <input type="text" [(ngModel)]="newProject.summary" class="form-control" id="summary">
             </div>
           </form>
         </div>
-        <div class="modal-footer"><button class="btn btn-access">OK</button>
+        <div class="modal-footer"><button (click)="saveNewProject()"  class="btn btn-access">OK</button>
         </div>
 
 
@@ -43,11 +45,13 @@
               <input type="text" class="form-control" id="Name">
               <label >Surname</label>
               <input type="text" class="form-control" id="Surname">
-              <label >Birthday</label>
-              <input type="date" class="form-control" id="B-day">
+              <label >E-mail</label>
+              <input type="email" class="form-control"  id="email" required="required">
+              <label >Password</label>
+              <input type="password" class="form-control" >
               <label >User Role</label>
               <select class="form-control">
-                <option > </option>
+                <option [value]="role.roleId" *ngFor="let role of userRole">{{role.role}} </option>
 
 
               </select>
@@ -71,29 +75,35 @@
         <div class="modal-body">
           <form role="form">
             <div class="form-group">
-              <label >Code</label>
-              <input type="text"  class="form-control" id="Code">
+              <label >Task Code</label>
+              <input type="text"  class="form-control" >
+              <label >Name</label>
+              <input type="text"  class="form-control" >
 
-              <label >Description</label>
-              <input type="text" class="form-control" id="Description">
+              <label >Project Code</label>
+              <select  class="form-control">
+                <option [value]="projectCode.projectId" *ngFor="let projectCode of taskProjectCode">{{projectCode.projectCode}}</option>
+              </select>
 
               <label >Priority</label>
               <select  class="form-control">
-                <option> Blocker</option>
-                <option> Critical</option>
-                <option> Major</option>
-                <option> Normal</option>
-                <option> Minor</option>
+                <option [value]="priority.priorityId" *ngFor="let priority of taskPriority">{{priority.priority}}</option>
               </select>
 
               <label >Due Date</label>
               <input type="date" class="form-control" id="Due">
 
-              <label >Estimation</label>
+              <label >Estimation (hours)</label>
               <input type="number" min="0"  class="form-control" id="Estimation">
 
               <label >Assignee</label>
-              <input type="text" class="form-control" id="Assignee">
+              <select  class="form-control">
+                <option [value]="userName.userId" *ngFor="let userName of userName"> {{userName.name+" "+userName.surname}}</option>
+              </select>
+
+              <label >Description</label>
+              <input type="text" class="form-control" id="Description">
+
             </div>
           </form>
         </div>

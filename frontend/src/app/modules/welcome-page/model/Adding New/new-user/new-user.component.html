@@ -1,0 +1,27 @@
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header">
+    <h2>New User</h2>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Name</p>
+    <input class="form-control" name="name" [(ngModel)]="editableUser.firstName"/>
+    <p>Surname</p>
+    <input class="form-control" name="name" [(ngModel)]="editableUser.secondName"/>
+    <p>Email</p>
+    <input class="form-control" name="email" [(ngModel)]="editableUser.email"/>
+    <p>Password</p>
+    <input class="form-control" name="password" [(ngModel)]="editableUser.password"/>
+    <p>User Role</p>
+    <select [(ngModel)]="editableUser.role">
+      <option [value]="role.role" *ngFor="let role of userRole">{{role.role}}</option>
+    </select>
+  </div>
+  <div class="modal-footer">
+    <button  (click)="saveNewUser()" type="button" class="btn btn-default" data-dismiss="modal">Create</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  </div>
+</div>

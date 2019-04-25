@@ -8,6 +8,7 @@ import java.util.List;
 public interface ProjectDataService {
     List<ProjectModel> getAll();
     ProjectModel getProjectByProjectCode (String projectCode);
-    ProjectModel getProjectByName(String projectName);
+    ProjectModel getProjectByProjectName(String projectName);
+    ProjectModel getProjectByProjectId(int projectId);
     ProjectModel saveProject(ProjectModel project);
 }

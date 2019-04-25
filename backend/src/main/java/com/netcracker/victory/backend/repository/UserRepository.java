@@ -17,5 +17,5 @@ UserEntity findUserEntitiesByUserId (Integer user_id);
     UserEntity save(UserEntity userEntity);
 
 
-
+    UserEntity findUserEntitiesByEmailAndPassword(String email, String password);
 }

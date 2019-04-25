@@ -3,10 +3,10 @@
     "target": {
       "host": "localhost",
       "protocol": "http:",
-      "port": 8081
+      "port": 8082
     },
     "secure": false,
     "logLevel": "info",
-    "pathRewrite": {"^/api" : ""}
+   "pathRewrite": {"^/api" : ""}
   }
 }

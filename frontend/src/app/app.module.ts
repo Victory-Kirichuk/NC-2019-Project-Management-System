@@ -11,6 +11,8 @@ import { WelcomePageComponent } from './modules/welcome-page/welcome-page.compon
 import {BsDropdownModule, ModalModule, TooltipModule} from "ngx-bootstrap";
 import { NavComponent } from './modules/Layout/components/nav/nav.component';
 import { EdProjectPageComponent } from './modules/ed_project-page/ed-project-page.component';
+import {FormsModule} from "@angular/forms";
+import { NewProjectComponent } from './new-project/new-project.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { EdProjectPageComponent } from './modules/ed_project-page/ed-project-pag
     LoginPageComponent,
     WelcomePageComponent,
     NavComponent,
-    EdProjectPageComponent
+    EdProjectPageComponent,
+    NewProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { EdProjectPageComponent } from './modules/ed_project-page/ed-project-pag
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     BsDropdownModule.forRoot(),
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

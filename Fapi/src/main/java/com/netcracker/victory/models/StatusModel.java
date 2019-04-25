@@ -3,6 +3,12 @@ package com.netcracker.victory.models;
 public class StatusModel {
 
         private int statusId;
+    private String status;
+
+//    public StatusModel(int statusId, String status) {
+//        this.statusId = statusId;
+//        this.status = status;
+//    }
 
     public String getStatus() {
         return status;
@@ -12,7 +18,7 @@ public class StatusModel {
         this.status = status;
     }
 
-    private String status;
+
 
         public int getStatusId() {
             return statusId;

@@ -1,0 +1,42 @@
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header">
+    <h2>New Task</h2>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <p>Project code</p>
+    <select [(ngModel)]="newTask.project">
+      <option [value]="project.code" *ngFor="let project of allProjects">{{project.code}}</option>
+    </select>
+
+    <p>Name</p>
+    <input class="form-control" name="name" [(ngModel)]="newTask.name"/>
+
+    <p>Description</p>
+    <input class="form-control" name="name" [(ngModel)]="newTask.description"/>
+
+    <p>Priority</p>
+    <select [(ngModel)]="newTask.priority">
+      <option [value] = "priority.priority" *ngFor="let priority of allPriority">{{priority.priority}}</option>
+    </select>
+
+    <p>Due Data</p>
+    <input type="date" min = "2018-01-01" [(ngModel)]="newTask.dueDate"/>
+
+    <p>Estimation</p>
+    <input class="form-control" name="name" [(ngModel)]="newTask.estimation"/>
+
+    <p>Assignee</p>
+    <select [(ngModel)] = "newTask.assignee">
+      <option [value] = "user.email" *ngFor = "let user of allUsers">{{user.firstName + " "+ user.secondName}}</option>
+    </select>
+  </div>
+  <div class="modal-footer">
+    <button (click)="saveNewTask()" type="button" class="btn btn-default" data-dismiss="modal">Create</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  </div>
+</div>

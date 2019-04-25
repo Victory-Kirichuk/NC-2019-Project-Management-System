@@ -9,6 +9,17 @@ public class ProjectModel {
     private String projectCode;
     private String summary;
 
+    public ProjectModel(int projectId, String projectName, String projectCode, String summary) {
+        this.projectId = projectId;
+        this.projectName = projectName;
+        this.projectCode = projectCode;
+        this.summary = summary;
+    }
+
+
+    public ProjectModel() {
+
+    }
 
     public int getProjectId() {
         return projectId;

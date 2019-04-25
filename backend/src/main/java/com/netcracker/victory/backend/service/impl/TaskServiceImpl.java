@@ -17,8 +17,8 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public TaskEntity findTaskEntityByCode(String Code) {
-        return taskRepository.findTaskEntityByCode(Code);
+    public TaskEntity findTaskEntityByCode(String code) {
+        return taskRepository.findTaskEntityByCode(code);
     }
 
     @Override

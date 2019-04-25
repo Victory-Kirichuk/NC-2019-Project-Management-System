@@ -29,6 +29,11 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public ProjectEntity findProjectEntitiesByProjectId(int projectId) {
+        return projectRepository.findProjectEntitiesByProjectId(projectId);
+    }
+
+    @Override
     public ProjectEntity save(ProjectEntity projectEntity) {
         return projectRepository.save(projectEntity);
     }
