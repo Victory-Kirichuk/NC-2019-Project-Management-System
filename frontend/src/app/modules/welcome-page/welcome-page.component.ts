@@ -30,7 +30,7 @@ export class WelcomePageComponent implements OnInit {
   constructor(   private taskPriorityService: TaskPriorityService,
                  private userRoleService: UserRoleService,private modalService: BsModalService,
                //  private userService: UserService,
-                 private projectService: ProjectService,
+             //    private projectService: ProjectService,
                  private taskProjectCodeService: TaskProjectCodeService,
                  private userNameService: UserNameService) { }
 
@@ -70,23 +70,15 @@ export class WelcomePageComponent implements OnInit {
   // private saveNewProject(){
   //   this.subscriptions.push(this.projectService.saveNewProject(this.newProject).subscribe());
   // }
-  private saveNewProject(){
-    this.subscriptions.push(this.projectService.saveNewProject(this.newProject).subscribe(()=>{
-      this.newProject = new Project();
-    }))
-  }
+
   openModal(template:TemplateRef<any>):void  {this.modalRef = this.modalService.show(template);
 
 
   }
 
-   closeModal(): void {
-    this.modalRef.hide();
-  }
 
-  addProject() {
 
-  }
+
 
 
 

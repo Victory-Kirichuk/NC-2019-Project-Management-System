@@ -2,32 +2,7 @@
 
 <div class="container-fluid">
   <div class="row jumbotron">
-    <div class="col-2">
-      <button (click)="openModal(templateNP)" class="btn btn-outline-primary btn-block "  data-toggle="modal" data-target="#NewProject" type="button">New Project</button>
-    </div>
-    <ng-template #templateNP>
-        <div class="modal-header">
-          <h4 class="modal-title">New Project</h4>
-          <button (click)="closeModal()" class="close" data-dismiss="modal">x</button>
 
-        </div>
-        <div class="modal-body">
-          <form (submit)="addProject()" role="form">
-            <div class="form-group">
-              <label >Code</label>
-              <input type="text"  [(ngModel)]="newProject.projectCode" class="form-control" id="code">
-              <label >Name</label>
-              <input type="text"  [(ngModel)]="newProject.projectName" class="form-control" id="pName" >
-              <label >Summary</label>
-              <input type="text" [(ngModel)]="newProject.summary" class="form-control" id="summary">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer"><button (click)="saveNewProject()"  class="btn btn-access">OK</button>
-        </div>
-
-
-      </ng-template>
 
     <div class="col-2">
       <button (click)="openModal(template)" class="btn btn-outline-primary btn-block " data-toggle="modal" data-target="#NewUser" type="button">New User</button>

@@ -12,7 +12,7 @@ import {BsDropdownModule, ModalModule, TooltipModule} from "ngx-bootstrap";
 import { NavComponent } from './modules/Layout/components/nav/nav.component';
 import { EdProjectPageComponent } from './modules/ed_project-page/ed-project-page.component';
 import {FormsModule} from "@angular/forms";
-import { NewProjectComponent } from './new-project/new-project.component';
+import { NewProjectComponent } from './modules/welcome-page/model/Adding New/new-project/new-project.component';
 
 @NgModule({
   declarations: [
