@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface StatusRepository extends CrudRepository<StatusEntity,Integer> {
+public interface StatusRepository extends CrudRepository<StatusEntity, Integer> {
     List<StatusEntity> findAll();
 
     StatusEntity findStatusByStatusId(int statusId);

@@ -11,6 +11,8 @@ import {TaskProjectCodeService} from "../../services/task-projectCode.service";
 import {UserName} from "./model/user-name";
 import {UserNameService} from "../../services/user-name.service";
 import {Project} from "./model/project";
+import {TaskService} from "../../services/task.service";
+import { Task} from "./model/task";
 
 @Component({
   selector: 'app-admin-page',
@@ -21,20 +23,22 @@ export class WelcomePageComponent implements OnInit {
   private modalRef: BsModalRef;
   userName:UserName[];
   userRole: UserRole[];
+  tasks:Task[];
   taskPriority: TaskPriority[];
   taskProjectCode: TaskProjectCode[];
-  newProject: Project = new Project();
+
 
   private subscriptions: Subscription[] = [];
+
 
   constructor(   private taskPriorityService: TaskPriorityService,
                  private userRoleService: UserRoleService,private modalService: BsModalService,
                //  private userService: UserService,
-             //    private projectService: ProjectService,
+                private taskService:TaskService, private projectService: ProjectService,
                  private taskProjectCodeService: TaskProjectCodeService,
                  private userNameService: UserNameService) { }
 
-  ngOnInit() {  this.loadUserRole();
+  ngOnInit() {  this.loadAllTasks(),this.loadUserRole();
   this.loadTaskPriority();
   this.loadTaskProjectCode();
   this.loadUserName();
@@ -43,6 +47,11 @@ export class WelcomePageComponent implements OnInit {
     this.subscriptions.push(this.userRoleService.getUserRole().subscribe(role => {
       this.userRole = role as UserRole[];
     }));
+  }
+  private loadAllTasks(): void{
+    this.subscriptions.push(this.taskService.getAllTasks().subscribe( tasks=>{
+      this.tasks = tasks as Task[];
+    }))
   }
   private loadTaskPriority() : void{
     this.subscriptions.push(this.taskPriorityService.getPriority().subscribe(priority=>{
@@ -71,10 +80,6 @@ export class WelcomePageComponent implements OnInit {
   //   this.subscriptions.push(this.projectService.saveNewProject(this.newProject).subscribe());
   // }
 
-  openModal(template:TemplateRef<any>):void  {this.modalRef = this.modalService.show(template);
-
-
-  }
 
 
 

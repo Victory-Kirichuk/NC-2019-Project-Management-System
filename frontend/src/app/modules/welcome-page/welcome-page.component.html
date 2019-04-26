@@ -2,89 +2,16 @@
 
 <div class="container-fluid">
   <div class="row jumbotron">
-
-
     <div class="col-2">
-      <button (click)="openModal(template)" class="btn btn-outline-primary btn-block " data-toggle="modal" data-target="#NewUser" type="button">New User</button>
-    </div> <ng-template #template>
-
-        <div class="modal-header">
-          <h4 class="modal-title">New User</h4>
-          <button (click)="closeModal()" class="close" data-dismiss="modal">x</button>
-
-        </div>
-        <div class="modal-body">
-          <form role="form">
-            <div class="form-group">
-              <label >Name</label>
-              <input type="text" class="form-control" id="Name">
-              <label >Surname</label>
-              <input type="text" class="form-control" id="Surname">
-              <label >E-mail</label>
-              <input type="email" class="form-control"  id="email" required="required">
-              <label >Password</label>
-              <input type="password" class="form-control" >
-              <label >User Role</label>
-              <select class="form-control">
-                <option [value]="role.roleId" *ngFor="let role of userRole">{{role.role}} </option>
-
-
-              </select>
-            </div>
-          </form>
-        </div>  <div class="modal-footer"><button class="btn btn-access">OK</button>
-      </div>
-      </ng-template>
-
+      <app-new-project> </app-new-project></div>
     <div class="col-2">
 
-      <button (click)="openModal(NewTask)" class="btn btn-outline-primary btn-block" data-toggle="modal" data-target="#NewTask" type="button">New Task</button>
-      <ng-template #NewTask>
+      <app-new-user></app-new-user>
+    </div>
 
-
-        <div class="modal-header">
-          <h4 class="modal-title">New Task</h4>
-          <button (click)="closeModal()" class="close" data-dismiss="modal">x</button>
-
-        </div>
-        <div class="modal-body">
-          <form role="form">
-            <div class="form-group">
-              <label >Task Code</label>
-              <input type="text"  class="form-control" >
-              <label >Name</label>
-              <input type="text"  class="form-control" >
-
-              <label >Project Code</label>
-              <select  class="form-control">
-                <option [value]="projectCode.projectId" *ngFor="let projectCode of taskProjectCode">{{projectCode.projectCode}}</option>
-              </select>
-
-              <label >Priority</label>
-              <select  class="form-control">
-                <option [value]="priority.priorityId" *ngFor="let priority of taskPriority">{{priority.priority}}</option>
-              </select>
-
-              <label >Due Date</label>
-              <input type="date" class="form-control" id="Due">
-
-              <label >Estimation (hours)</label>
-              <input type="number" min="0"  class="form-control" id="Estimation">
-
-              <label >Assignee</label>
-              <select  class="form-control">
-                <option [value]="userName.userId" *ngFor="let userName of userName"> {{userName.name+" "+userName.surname}}</option>
-              </select>
-
-              <label >Description</label>
-              <input type="text" class="form-control" id="Description">
-
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer"><button class="btn btn-access">OK</button>
-
-        </div></ng-template></div>
+    <div class="col-2">
+<app-new-task></app-new-task>
+     </div>
     <div class="col-6">
       <div class="d7">
         <form>
@@ -109,12 +36,15 @@
       <thead class="thead-dark">
       <tr class="active">
         <th scope="col">Project Code</th>
-        <th scope="col">Task</th>
+        <th scope="col">Task Code</th>
+        <th scope="col">Task Name</th>
         <th scope="col">Priority</th>
         <th scope="col">Status</th>
         <th scope="col">Created</th>
         <th scope="col"> Updated</th>
+        <th scope="col"> Resolved</th>
         <th scope="col"> Due Date</th>
+        <th scope="col"> Closed</th>
         <th scope="col"> Estimation</th>
         <th scope="col"> Assignee</th>
         <th scope="col">Description</th>
@@ -122,18 +52,21 @@
       </tr>
       </thead>
       <tbody id="Table">
-      <tr>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>Lorem, ipsum dolor.</td>
-        <td>Major</td>
-        <td>In progress</td>
-        <td>29.02.19</td>
-        <td>01.03.19</td>
-        <td>27.04.19</td>
-        <td>500</td>
-        <td>Developer</td>
-        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum animi hic assumenda mollitia facilis.</td>
-        <td><button  style="align-content: center" class="btn btn-success" [routerLink]="['/edit-project-page']">Edit</button></td>
+      <tr *ngFor="let task of tasks">
+        <td><a routerLink="['/task-page']">{{task.projectCode}} </a> </td>
+        <td>{{task.code}}</td>
+        <td>{{task.name}}</td>
+        <td>{{task.priority}}</td>
+        <td>{{task.status}}</td>
+        <td>{{task.createdDate}}</td>
+        <td>{{task.updateDate}}</td>
+        <td>{{task.resolvedDate}}</td>
+        <td>{{task.dueDate}}</td>
+        <td>{{task.closedDate}}</td>
+        <td>{{task.estimation}}</td>
+        <td>{{task.assign}}</td>
+        <td>{{task.description}}</td>
+        <td><button  style="align-content: center" class="btn btn-success" [routerLink]="['/edit-project-page/']">Edit</button></td>
       </tr>
       <tr>
 

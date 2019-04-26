@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {TaskPriority} from "../modules/welcome-page/model/task-priority";
-
+import { Task} from '../modules/welcome-page/model/task';
+import {Project} from "../modules/welcome-page/model/project";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,10 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  getPriority(): Observable<TaskPriority[]>{
-    return this.http.get<TaskPriority[]>("/api/task");
+  getAllTasks(): Observable<Task[]>{
+    return this.http.get<Task[]>("/api/task");
+  }
+  saveNewTask(task: Task): Observable<Task>{
+    return this.http.post<Task>("/api/task", task);
   }
 }

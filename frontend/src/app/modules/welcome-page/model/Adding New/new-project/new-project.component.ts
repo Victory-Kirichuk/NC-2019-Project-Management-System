@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {Project} from "../../project";
-import {BsModalRef} from "ngx-bootstrap";
-import {UserName} from "../../user-name";
-import {UserRole} from "../../UserRole";
-import {TaskPriority} from "../../task-priority";
-import {TaskProjectCode} from "../../task-projectCode";
+import {BsModalRef, BsModalService} from "ngx-bootstrap";
 import {Subscription} from "rxjs";
 import {ProjectService} from "../../../../../services/project.service";
 
 @Component({
-  selector: 'app-new-page',
+  selector: 'app-new-project',
   templateUrl: './new-project.component.html',
   styleUrls: ['./new-project.component.css']
 })
@@ -19,7 +15,7 @@ export class NewProjectComponent implements OnInit {
 
   newProject: Project = new Project();
   private subscriptions: Subscription[] = [];
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService,private modalService: BsModalService,) { }
   private saveNewProject(){
     this.subscriptions.push(this.projectService.saveNewProject(this.newProject).subscribe(()=>{
       this.newProject = new Project();
@@ -29,5 +25,9 @@ export class NewProjectComponent implements OnInit {
   }
   closeModal(): void {
     this.modalRef.hide();
+  }
+  openModal(template:TemplateRef<any>):void  {this.modalRef = this.modalService.show(template);
+
+
   }
 }

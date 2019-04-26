@@ -6,7 +6,13 @@ public class RoleModel {
     private int roleId;
     private String role;
 
+    public RoleModel() {
+    }
 
+    public RoleModel(int roleId, String role) {
+        this.roleId = roleId;
+        this.role = role;
+    }
 
     public String getRole() {
         return role;

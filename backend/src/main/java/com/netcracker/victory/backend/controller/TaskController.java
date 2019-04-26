@@ -1,6 +1,7 @@
 package com.netcracker.victory.backend.controller;
 
 import com.netcracker.victory.backend.entities.TaskEntity;
+import com.netcracker.victory.backend.entities.UserEntity;
 import com.netcracker.victory.backend.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,8 @@ public class TaskController {
     {TaskEntity taskEntity=taskService.findTaskEntityByCode(name);
         return  ResponseEntity.ok(taskEntity);}
 
+//        @RequestMapping(value = "/userByAssign/{userByAssign}",method =RequestMethod.GET )
+//        public ResponseEntity<TaskEntity> getTaskEntityByUserByAssign(@PathVariable(name = "userByAssign"))
 
 
 

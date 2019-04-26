@@ -1,7 +1,6 @@
 package com.netcracker.victory.models;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class TaskModel {
     private int taskId;
@@ -10,27 +9,48 @@ public class TaskModel {
     private int projectId;
     private int statusId;
     private int priorityId;
-    private Timestamp createDate;
-    private Timestamp updateDate;
+
+    private Date createDate;
+    private Date updateDate;
     private Date dueDate;
-    private Timestamp resolvedDate;
-    private Timestamp closedDate;
-    private Integer estimation;
+    private Date resolvedDate;
+    private Date closedDate;
+
+    private int estimation;
     private int assign;
     private String description;
     private int reporter;
 
-    private ProjectModel projectByProject;
-    private StatusModel statusByStatus;
-    private PriorityModel priorityByPriority;
+    private ProjectModel projectByProjectId;
+    private StatusModel statusByStatusId;
+    private PriorityModel priorityByPriorityId;
     private UserModel userByAssign;
     private UserModel userByReporter;
 
+    public TaskModel() {
+    }
 
-
-
-    public void setTaskId(int taskId) {
+    public TaskModel(int taskId, String code, String name, int projectId, int statusId, int priorityId, Date createDate, Date updateDate, Date dueDate, Date resolvedDate, Date closedDate, int estimation, int assign, String description, int reporter, ProjectModel projectByProjectId, StatusModel statusByStatusId, PriorityModel priorityByPriorityId, UserModel userByAssign, UserModel userByReporter) {
         this.taskId = taskId;
+        this.code = code;
+        this.name = name;
+        this.projectId = projectId;
+        this.statusId = statusId;
+        this.priorityId = priorityId;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.dueDate = dueDate;
+        this.resolvedDate = resolvedDate;
+        this.closedDate = closedDate;
+        this.estimation = estimation;
+        this.assign = assign;
+        this.description = description;
+        this.reporter = reporter;
+        this.projectByProjectId = projectByProjectId;
+        this.statusByStatusId = statusByStatusId;
+        this.priorityByPriorityId = priorityByPriorityId;
+        this.userByAssign = userByAssign;
+        this.userByReporter = userByReporter;
     }
 
     public String getCode() {
@@ -73,19 +93,19 @@ public class TaskModel {
         this.priorityId = priorityId;
     }
 
-    public Timestamp getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Timestamp createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
-    public Timestamp getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Timestamp updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -97,24 +117,28 @@ public class TaskModel {
         this.dueDate = dueDate;
     }
 
-    public Timestamp getResolvedDate() {
+    public Date getResolvedDate() {
         return resolvedDate;
     }
 
-    public void setResolvedDate(Timestamp resolvedDate) {
+    public void setResolvedDate(Date resolvedDate) {
         this.resolvedDate = resolvedDate;
     }
 
-    public Timestamp getClosedDate() {
+    public Date getClosedDate() {
         return closedDate;
     }
 
-    public void setClosedDate(Timestamp closedDate) {
+    public void setClosedDate(Date closedDate) {
         this.closedDate = closedDate;
     }
 
-    public Integer getEstimation() {
+    public int getEstimation() {
         return estimation;
+    }
+
+    public void setEstimation(int estimation) {
+        this.estimation = estimation;
     }
 
     public void setEstimation(Integer estimation) {
@@ -149,28 +173,33 @@ public class TaskModel {
         return taskId;
     }
 
-    public ProjectModel getProjectByProject() {
-        return projectByProject;
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 
-    public void setProjectByProject(ProjectModel projectByProject) {
-        this.projectByProject = projectByProject;
+    public ProjectModel getProjectByProjectId() {
+        return projectByProjectId;
     }
 
-    public StatusModel getStatusByStatus() {
-        return statusByStatus;
+    public void setProjectByProjectId(ProjectModel projectByProjectId) {
+        this.projectByProjectId = projectByProjectId;
     }
 
-    public void setStatusByStatus(StatusModel statusByStatus) {
-        this.statusByStatus = statusByStatus;
+    public StatusModel getStatusByStatusId() {
+        return statusByStatusId;
     }
 
-    public PriorityModel getPriorityByPriority() {
-        return priorityByPriority;
+    public void setStatusByStatusId(StatusModel statusByStatusId) {
+        this.statusByStatusId = statusByStatusId;
     }
 
-    public void setPriorityByPriority(PriorityModel priorityByPriority) {
-        this.priorityByPriority = priorityByPriority;
+    public PriorityModel getPriorityByPriorityId() {
+
+        return priorityByPriorityId;
+    }
+
+    public void setPriorityByPriorityId(PriorityModel priorityByPriorityId) {
+        this.priorityByPriorityId = priorityByPriorityId;
     }
 
     public UserModel getUserByAssign() {

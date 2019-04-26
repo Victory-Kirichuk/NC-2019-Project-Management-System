@@ -2,13 +2,16 @@ package com.netcracker.victory.models;
 
 public class StatusModel {
 
-        private int statusId;
+    private int statusId;
     private String status;
 
-//    public StatusModel(int statusId, String status) {
-//        this.statusId = statusId;
-//        this.status = status;
-//    }
+    public StatusModel() {
+    }
+
+    public StatusModel(int statusId, String status) {
+        this.statusId = statusId;
+        this.status = status;
+    }
 
     public String getStatus() {
         return status;
@@ -19,13 +22,12 @@ public class StatusModel {
     }
 
 
-
-        public int getStatusId() {
-            return statusId;
-        }
-
-        public void setStatusId(int statusId) {
-            this.statusId = statusId;
-        }
-
+    public int getStatusId() {
+        return statusId;
     }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
+    }
+
+}

@@ -1,6 +1,7 @@
 package com.netcracker.victory.backend.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "project", schema = "pms", catalog = "")
@@ -33,6 +34,7 @@ public class ProjectEntity {
 
     @Basic
     @Column(name = "project_code")
+    @Size(min = 4,max = 4)
     public String getProjectCode() {
         return projectCode;
     }
@@ -61,9 +63,8 @@ public class ProjectEntity {
         if (projectId != that.projectId) return false;
         if (projectName != null ? !projectName.equals(that.projectName) : that.projectName != null) return false;
         if (projectCode != null ? !projectCode.equals(that.projectCode) : that.projectCode != null) return false;
-        if (summary != null ? !summary.equals(that.summary) : that.summary != null) return false;
+        return summary != null ? summary.equals(that.summary) : that.summary == null;
 
-        return true;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.netcracker.victory.backend.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.sql.Date;
 
 @Entity
@@ -9,13 +10,13 @@ public class UserEntity {
     private int userId;
     private String name;
     private String surname;
-       private Integer role;
+       private int role;
     private String email;
     private String password;
     private RoleEntity roleByRole;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     public int getUserId() {
         return userId;
@@ -57,6 +58,7 @@ public class UserEntity {
 
     @Basic
     @Column(name = "email")
+    @Pattern(regexp = "/\\A[^@]+@([^@\\.]+\\.)+[^@\\.]+\\z/")
     public String getEmail() {
         return email;
     }
@@ -83,13 +85,13 @@ public class UserEntity {
         UserEntity that = (UserEntity) o;
 
         if (userId != that.userId) return false;
+        if (role != that.role) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (surname != null ? !surname.equals(that.surname) : that.surname != null) return false;
-                if (role != null ? !role.equals(that.role) : that.role != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        return roleByRole != null ? roleByRole.equals(that.roleByRole) : that.roleByRole == null;
 
-        return true;
     }
 
     @Override
@@ -97,10 +99,10 @@ public class UserEntity {
         int result = userId;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
-
-        result = 31 * result + (role != null ? role.hashCode() : 0);
+        result = 31 * result + role;
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (roleByRole != null ? roleByRole.hashCode() : 0);
         return result;
     }
 

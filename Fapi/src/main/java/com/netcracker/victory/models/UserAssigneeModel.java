@@ -4,17 +4,17 @@ public class UserAssigneeModel {
     private int userId;
     private String name;
     private String surname;
-   private String fullName;
+    private String fullName;
 
-//    public UserModel(int userId, String name, String surname, Integer role, String email, String password) {
-//        this.userId = userId;
-//        this.name = name;
-//        this.surname = surname;
-//        this.role = role;
-//        this.email = email;
-//        this.password = password;
-//    }
+    public UserAssigneeModel() {
+    }
 
+    public UserAssigneeModel(int userId, String name, String surname, String fullName) {
+        this.userId = userId;
+        this.name = name;
+        this.surname = surname;
+        this.fullName = fullName;
+    }
 
     public String getName() {
         return name;
@@ -39,8 +39,6 @@ public class UserAssigneeModel {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-
-
 
 
 }

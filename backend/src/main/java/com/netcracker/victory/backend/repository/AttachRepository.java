@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AttachRepository extends CrudRepository<AttachEntity,Integer> {
+public interface AttachRepository extends CrudRepository<AttachEntity, Integer> {
     List<AttachEntity> findAll();
+
     AttachEntity save(AttachEntity attachEntity);
 }

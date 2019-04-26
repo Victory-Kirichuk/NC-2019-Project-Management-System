@@ -1232,6 +1232,7 @@
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="309" parent="283" name="project_name">
@@ -1331,12 +1332,12 @@
     </column>
     <column id="325" parent="286" name="create_date">
       <Position>7</Position>
-      <DataType>timestamp|0s</DataType>
+      <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="326" parent="286" name="update_date">
       <Position>8</Position>
-      <DataType>timestamp|0s</DataType>
+      <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="327" parent="286" name="due_date">
@@ -1346,12 +1347,12 @@
     </column>
     <column id="328" parent="286" name="resolved_date">
       <Position>10</Position>
-      <DataType>timestamp|0s</DataType>
+      <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="329" parent="286" name="closed_date">
       <Position>11</Position>
-      <DataType>timestamp|0s</DataType>
+      <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="330" parent="286" name="estimation">
@@ -1376,108 +1377,98 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="334" parent="286" name="project_idx">
-      <ColNames>project_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="335" parent="286" name="status_idx">
+    <index id="334" parent="286" name="status_idx">
       <ColNames>status_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="336" parent="286" name="priority_idx">
+    <index id="335" parent="286" name="priority_idx">
       <ColNames>priority_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="337" parent="286" name="assign_idx">
+    <index id="336" parent="286" name="assign_idx">
       <ColNames>assign</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="338" parent="286" name="reporter_idx">
+    <index id="337" parent="286" name="reporter_idx">
       <ColNames>reporter</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="339" parent="286" name="PRIMARY">
+    <key id="338" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>task_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="340" parent="286" name="project">
-      <ColNames>project_id</ColNames>
-      <RefSchemaName>pms</RefSchemaName>
-      <RefTableName>project</RefTableName>
-      <RefColNames>project_id</RefColNames>
-    </foreign-key>
-    <foreign-key id="341" parent="286" name="status">
+    <foreign-key id="339" parent="286" name="status">
       <ColNames>status_id</ColNames>
       <RefSchemaName>pms</RefSchemaName>
       <RefTableName>status</RefTableName>
       <RefColNames>status_id</RefColNames>
     </foreign-key>
-    <foreign-key id="342" parent="286" name="priority">
+    <foreign-key id="340" parent="286" name="priority">
       <ColNames>priority_id</ColNames>
       <RefSchemaName>pms</RefSchemaName>
       <RefTableName>priority</RefTableName>
       <RefColNames>priority_id</RefColNames>
     </foreign-key>
-    <foreign-key id="343" parent="286" name="assign">
+    <foreign-key id="341" parent="286" name="assign">
       <ColNames>assign</ColNames>
       <RefSchemaName>pms</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <foreign-key id="344" parent="286" name="reporter">
+    <foreign-key id="342" parent="286" name="reporter">
       <ColNames>reporter</ColNames>
       <RefSchemaName>pms</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <column id="345" parent="287" name="user_id">
+    <column id="343" parent="287" name="user_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="346" parent="287" name="name">
+    <column id="344" parent="287" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="287" name="surname">
+    <column id="345" parent="287" name="surname">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="287" name="role">
+    <column id="346" parent="287" name="role">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="287" name="email">
+    <column id="347" parent="287" name="email">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="287" name="password">
+    <column id="348" parent="287" name="password">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="351" parent="287" name="role_idx">
+    <index id="349" parent="287" name="role_idx">
       <ColNames>role</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="352" parent="287" name="PRIMARY">
+    <key id="350" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="353" parent="287" name="role">
+    <foreign-key id="351" parent="287" name="role">
       <ColNames>role</ColNames>
       <RefSchemaName>pms</RefSchemaName>
       <RefTableName>role</RefTableName>

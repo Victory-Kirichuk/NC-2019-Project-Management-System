@@ -12,4 +12,5 @@ public interface TaskDataService {
     TaskModel getTaskByName (String name);
     TaskModel getTaskByAssign (int assign);
     TaskModel getTaskByStatus(int statusId);
+    TaskModel save(TaskModel taskModel);
 }

@@ -12,7 +12,7 @@ public class AttachEntity {
     private Integer taskId;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "attach_id")
     public int getAttachId() {
         return attachId;

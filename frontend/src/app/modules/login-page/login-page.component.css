@@ -1,17 +1,22 @@
 button {
 
 margin-top: auto;
-  margin-left: 15px;
+
 }
 div{background-color: azure;
 text-align: center;
 width: 100%;
 height: 100%;
 }
-.modal-body,.modal-footer,.modal-header,.form-group{background-color: white}
+.modal-body,.modal-footer,.modal-header,.form-group{background-color: white;text-align: left}
 @font-face {
   font-family: Josefin_Sans;
   src: url("/fonts/Josefin_Sans/JosefinSans-Regular.ttf");
 }
 
 .font1 {font-family: Josefin_Sans}
+
+.Checkbox{text-align: left;
+  background: white;
+}
+

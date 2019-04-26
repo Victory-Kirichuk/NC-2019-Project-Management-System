@@ -1,7 +1,10 @@
 package com.netcracker.victory.models.DTO;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.netcracker.victory.DateSerializer;
+import com.netcracker.victory.models.TaskModel;
+
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class TaskDTO {
     private int taskId;
@@ -10,17 +13,25 @@ public class TaskDTO {
     private String projectCode;
     private String status;
     private String priority;
-    private Timestamp createDate;
-    private Timestamp updateDate;
+    @JsonSerialize(using = DateSerializer.class)
+    private Date createDate;
+    @JsonSerialize(using = DateSerializer.class)
+    private Date updateDate;
+    @JsonSerialize(using = DateSerializer.class)
     private Date dueDate;
-    private Timestamp resolvedDate;
-    private Timestamp closedDate;
-    private Integer estimation;
+    @JsonSerialize(using = DateSerializer.class)
+    private Date resolvedDate;
+    @JsonSerialize(using = DateSerializer.class)
+    private Date closedDate;
+    private int estimation;
     private String assign;
     private String description;
     private String reporter;
 
-    public TaskDTO(int taskId, String code, String name, String projectCode, String status, String priority, Timestamp createDate, Timestamp updateDate, Date dueDate, Timestamp resolvedDate, Timestamp closedDate, Integer estimation, String assign, String description,String reporter) {
+    public TaskDTO() {
+    }
+
+    public TaskDTO(int taskId, String code, String name, String projectCode, String status, String priority, Date createDate, Date updateDate, Date dueDate, Date resolvedDate, Date closedDate, int estimation, String assign, String description, String reporter) {
         this.taskId = taskId;
         this.code = code;
         this.name = name;
@@ -38,8 +49,26 @@ public class TaskDTO {
         this.reporter = reporter;
     }
 
-    public TaskDTO() {
+    public TaskDTO(TaskModel taskModel) {
+        this(
+                taskModel.getTaskId(),
+                taskModel.getCode(),
+                taskModel.getName(),
+                taskModel.getProjectByProjectId().getProjectCode(),
+                taskModel.getStatusByStatusId().getStatus(),
+                taskModel.getPriorityByPriorityId().getPriority(),
+                taskModel.getCreateDate(),
+                taskModel.getUpdateDate(),
+                taskModel.getDueDate(),
+                taskModel.getResolvedDate(),
+                taskModel.getClosedDate(),
+                taskModel.getEstimation(),
+                taskModel.getUserByAssign().getSurname() +" "+ taskModel.getUserByAssign().getName(),
+                taskModel.getDescription(),
+                taskModel.getUserByReporter().getSurname() +" "+ taskModel.getUserByReporter().getName()
+        );
     }
+
 
     public int getTaskId() {
         return taskId;
@@ -89,19 +118,19 @@ public class TaskDTO {
         this.priority = priority;
     }
 
-    public Timestamp getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Timestamp createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
-    public Timestamp getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Timestamp updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
@@ -113,24 +142,28 @@ public class TaskDTO {
         this.dueDate = dueDate;
     }
 
-    public Timestamp getResolvedDate() {
+    public Date getResolvedDate() {
         return resolvedDate;
     }
 
-    public void setResolvedDate(Timestamp resolvedDate) {
+    public void setResolvedDate(Date resolvedDate) {
         this.resolvedDate = resolvedDate;
     }
 
-    public Timestamp getClosedDate() {
+    public Date getClosedDate() {
         return closedDate;
     }
 
-    public void setClosedDate(Timestamp closedDate) {
+    public void setClosedDate(Date closedDate) {
         this.closedDate = closedDate;
     }
 
     public Integer getEstimation() {
         return estimation;
+    }
+
+    public void setEstimation(int estimation) {
+        this.estimation = estimation;
     }
 
     public void setEstimation(Integer estimation) {

@@ -9,6 +9,9 @@ public class CommentModel {
     private Date creation;
     private Integer taskId;
 
+    public CommentModel() {
+    }
+
     public CommentModel(int commentId, String comment, int author, Date creation, Integer taskId) {
         this.commentId = commentId;
         this.comment = comment;

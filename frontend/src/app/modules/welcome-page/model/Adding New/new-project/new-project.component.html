@@ -1,6 +1,6 @@
-<div class="col-2">
-  <button (click)="openModal(templateNP)" class="btn btn-outline-primary btn-block "  data-toggle="modal" data-target="#NewProject" type="button">New Project</button>
-</div>
+
+  <button  (click)="openModal(templateNP)"  class="btn btn-outline-primary btn-block "  data-toggle="modal" data-target="#NewProject" type="button">New Project</button>
+
 <ng-template #templateNP>
   <div class="modal-header">
     <h4 class="modal-title">New Project</h4>
@@ -8,14 +8,14 @@
 
   </div>
   <div class="modal-body">
-    <form (submit)="addProject()" role="form">
+    <form (submit)="saveNewProject()" role="form">
       <div class="form-group">
         <label >Code</label>
-        <input type="text"  [(ngModel)]="newProject.projectCode" class="form-control" id="code">
+        <input type="text" name="code" [(ngModel)]="newProject.projectCode" class="form-control" id="code">
         <label >Name</label>
-        <input type="text"  [(ngModel)]="newProject.projectName" class="form-control" id="pName" >
+        <input type="text"  name="name" [(ngModel)]="newProject.projectName" class="form-control" id="pName" >
         <label >Summary</label>
-        <input type="text" [(ngModel)]="newProject.summary" class="form-control" id="summary">
+        <input type="text" name="summary" [(ngModel)]="newProject.summary" class="form-control" id="summary">
       </div>
     </form>
   </div>

@@ -10,10 +10,10 @@ public class CommentEntity {
     private String comment;
     private int author;
     private Date creation;
-    private Integer taskId;
+    private int taskId;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id")
     public int getCommentId() {
         return commentId;
@@ -72,11 +72,10 @@ public class CommentEntity {
 
         if (commentId != that.commentId) return false;
         if (author != that.author) return false;
+        if (taskId != that.taskId) return false;
         if (comment != null ? !comment.equals(that.comment) : that.comment != null) return false;
-        if (creation != null ? !creation.equals(that.creation) : that.creation != null) return false;
-        if (taskId != null ? !taskId.equals(that.taskId) : that.taskId != null) return false;
+        return creation != null ? creation.equals(that.creation) : that.creation == null;
 
-        return true;
     }
 
     @Override
@@ -85,7 +84,7 @@ public class CommentEntity {
         result = 31 * result + (comment != null ? comment.hashCode() : 0);
         result = 31 * result + author;
         result = 31 * result + (creation != null ? creation.hashCode() : 0);
-        result = 31 * result + (taskId != null ? taskId.hashCode() : 0);
+        result = 31 * result + taskId;
         return result;
     }
 }

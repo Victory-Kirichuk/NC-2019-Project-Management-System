@@ -8,14 +8,17 @@ public class UserModel {
     private String email;
     private String password;
 
-//    public UserModel(int userId, String name, String surname, Integer role, String email, String password) {
-//        this.userId = userId;
-//        this.name = name;
-//        this.surname = surname;
-//        this.role = role;
-//        this.email = email;
-//        this.password = password;
-//    }
+    public UserModel() {
+    }
+
+    public UserModel(int userId, String name, String surname, Integer role, String email, String password) {
+        this.userId = userId;
+        this.name = name;
+        this.surname = surname;
+        this.role = role;
+        this.email = email;
+        this.password = password;
+    }
 
     public int getUserId() {
         return userId;

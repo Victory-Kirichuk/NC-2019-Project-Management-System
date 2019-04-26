@@ -12,11 +12,13 @@ public class TaskEntity {
     private int projectId;
     private int statusId;
     private int priorityId;
+
     private Date createDate;
     private Date updateDate;
     private Date dueDate;
     private Date resolvedDate;
     private Date closedDate;
+
     private String estimation;
     private int assign;
     private String description;
@@ -28,7 +30,7 @@ public class TaskEntity {
     private UserEntity userByReporter;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "task_id")
     public int getTaskId() {
         return taskId;
@@ -225,7 +227,7 @@ public class TaskEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "project_id", referencedColumnName = "project_id", nullable = false,insertable = false, updatable = false)
+    @JoinColumn(name = "project_id", referencedColumnName = "project_id", nullable = false, insertable = false, updatable = false)
     public ProjectEntity getProjectByProjectId() {
         return projectByProjectId;
     }
@@ -235,7 +237,7 @@ public class TaskEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "status_id", referencedColumnName = "status_id",nullable = false,insertable = false, updatable = false)
+    @JoinColumn(name = "status_id", referencedColumnName = "status_id", nullable = false, insertable = false, updatable = false)
     public StatusEntity getStatusByStatusId() {
         return statusByStatusId;
     }
@@ -245,7 +247,7 @@ public class TaskEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "priority_id", referencedColumnName = "priority_id", nullable = false,insertable = false, updatable = false)
+    @JoinColumn(name = "priority_id", referencedColumnName = "priority_id", nullable = false, insertable = false, updatable = false)
     public PriorityEntity getPriorityByPriorityId() {
         return priorityByPriorityId;
     }
@@ -255,7 +257,7 @@ public class TaskEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "assign", referencedColumnName = "user_id", nullable = false,insertable = false, updatable = false)
+    @JoinColumn(name = "assign", referencedColumnName = "user_id", nullable = false, insertable = false, updatable = false)
     public UserEntity getUserByAssign() {
         return userByAssign;
     }
@@ -265,7 +267,7 @@ public class TaskEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "reporter", referencedColumnName = "user_id", nullable = false,insertable = false, updatable = false)
+    @JoinColumn(name = "reporter", referencedColumnName = "user_id", nullable = false, insertable = false, updatable = false)
     public UserEntity getUserByReporter() {
         return userByReporter;
     }

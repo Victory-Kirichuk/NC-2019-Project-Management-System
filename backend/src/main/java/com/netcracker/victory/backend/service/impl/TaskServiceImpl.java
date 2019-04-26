@@ -1,6 +1,7 @@
 package com.netcracker.victory.backend.service.impl;
 
 import com.netcracker.victory.backend.entities.TaskEntity;
+import com.netcracker.victory.backend.entities.UserEntity;
 import com.netcracker.victory.backend.repository.TaskRepository;
 import com.netcracker.victory.backend.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public TaskEntity findTaskEntityByAssign(int assign) {
         return taskRepository.findTaskEntityByAssign(assign);
+    }
+
+    @Override
+    public TaskEntity findTaskEntityByUserByAssign(UserEntity userEntity) {
+        return taskRepository.findTaskEntityByUserByAssign(userEntity);
     }
 
     @Override
