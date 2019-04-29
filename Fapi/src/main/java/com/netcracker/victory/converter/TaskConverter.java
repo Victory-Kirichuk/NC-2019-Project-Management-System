@@ -20,15 +20,15 @@ import java.util.List;
         taskDTO.setCode(taskModel.getCode());
         taskDTO.setPriority(taskModel.getPriorityByPriorityId().getPriority());
         taskDTO.setStatus(taskModel.getStatusByStatusId().getStatus());
-        taskDTO.setAssign(taskModel.getUserByAssign().getSurname()+" "+taskModel.getUserByAssign().getName());
-
+        taskDTO.setAssignName(taskModel.getUserByAssign().getName());
+        taskDTO.setAssignSurname(taskModel.getUserByAssign().getSurname());
         taskDTO.setClosedDate(taskModel.getClosedDate());
         taskDTO.setCreateDate(taskModel.getCreateDate());
         taskDTO.setUpdateDate(taskModel.getUpdateDate());
         taskDTO.setDueDate(taskModel.getDueDate());
         taskDTO.setResolvedDate(taskModel.getResolvedDate());
-
-        taskDTO.setReporter(taskModel.getUserByReporter().getSurname()+" "+taskModel.getUserByReporter().getName());
+        taskDTO.setReporterSurname(taskModel.getUserByReporter().getSurname());
+        taskDTO.setReporterName(taskModel.getUserByReporter().getName());
         taskDTO.setDescription(taskModel.getDescription());
         taskDTO.setEstimation(taskModel.getEstimation());
         taskDTO.setName(taskModel.getName());
@@ -53,12 +53,16 @@ import java.util.List;
         taskModel.setDescription(taskDTO.getDescription());
         taskModel.setEstimation(taskDTO.getEstimation());
 
-//        taskModel.setPriorityId();
+
         taskModel.setClosedDate(taskDTO.getClosedDate());
         taskModel.setCreateDate(taskDTO.getCreateDate());
         taskModel.setDueDate(taskDTO.getDueDate());
         taskModel.setResolvedDate(taskDTO.getResolvedDate());
         taskModel.setUpdateDate(taskDTO.getUpdateDate());
+
+
+
+
 
 
         return taskModel;

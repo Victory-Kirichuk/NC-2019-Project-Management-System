@@ -3,35 +3,40 @@ export class Task {
   code: string;
   name: string;
   projectCode: string;
-  priority: string;
-  status: string;
+  priorityId: string;
+  statusId: string;
   createdDate: string;
   updateDate: string;
   dueDate: string;
   resolvedDate: string;
   closedDate: string;
   estimation: string;
-  assign: string;
+  assignName: string;
+  assignSurname: string;
   description: string;
-  reporter: string;
-
+  reporterName: string;
+  assign:string;
+  reporterSurname: string;
   static cloneBase(task: Task): Task {
     const clonedTask: Task = new Task();
     clonedTask.taskId = task.taskId;
     clonedTask.name = task.name;
     clonedTask.code = task.code;
     clonedTask.projectCode = task.projectCode;
-    clonedTask.priority = task.priority;
-    clonedTask.status = task.status;
+    clonedTask.priorityId = task.priorityId;
+    clonedTask.statusId = task.statusId;
     clonedTask.createdDate = task.createdDate;
     clonedTask.updateDate = task.updateDate;
     clonedTask.dueDate = task.dueDate;
     clonedTask.resolvedDate = task.resolvedDate;
     clonedTask.closedDate = task.closedDate;
-    clonedTask.assign = task.assign;
-    clonedTask.reporter = task.reporter;
+    clonedTask.assignName = task.assignName;
+    clonedTask.reporterName = task.reporterName;
+    clonedTask.assignSurname = task.assignSurname;
+    clonedTask.reporterSurname = task.reporterSurname;
     clonedTask.estimation = task.estimation;
     clonedTask.description = task.description;
+    clonedTask.assign=task.assign;
     return clonedTask;
   }
 
@@ -47,12 +52,12 @@ export class Task {
     return this.projectCode;
   }
   public getPriority(): string{
-    return this.priority;
+    return this.priorityId;
   }
 
 
   public  getStatus():string{
-    return this.status;
+    return this.statusId;
   }
   public  getCreatedDate():string{
     return this.createdDate;

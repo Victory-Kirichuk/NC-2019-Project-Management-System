@@ -43,9 +43,11 @@ private TaskConverter taskConverter;
         return ResponseEntity.ok(taskDTOS);
     }
     @RequestMapping(method = RequestMethod.POST)
-    public TaskModel saveProject(@RequestBody TaskDTO taskDTO) {
-
-       return taskDataService.save(taskConverter.convertToModel(taskDTO));
+    public ResponseEntity<TaskModel> saveProject(@RequestBody TaskModel taskModel ) {
+        if (taskModel != null) {
+            return ResponseEntity.ok(taskDataService.save(taskModel));
+        }
+        return null;
     }
 
 //    @RequestMapping(method = RequestMethod.POST)

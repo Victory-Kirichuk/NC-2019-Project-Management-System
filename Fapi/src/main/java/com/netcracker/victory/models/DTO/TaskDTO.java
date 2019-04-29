@@ -24,14 +24,16 @@ public class TaskDTO {
     @JsonSerialize(using = DateSerializer.class)
     private Date closedDate;
     private int estimation;
-    private String assign;
+    private String assignName;
+    private String assignSurname;
     private String description;
-    private String reporter;
-
+    private String reporterName;
+    private int assignId;
+    private String reporterSurname;
     public TaskDTO() {
     }
 
-    public TaskDTO(int taskId, String code, String name, String projectCode, String status, String priority, Date createDate, Date updateDate, Date dueDate, Date resolvedDate, Date closedDate, int estimation, String assign, String description, String reporter) {
+    public TaskDTO(int taskId, String code, String name, String projectCode, String status, String priority, Date createDate, Date updateDate, Date dueDate, Date resolvedDate, Date closedDate, int estimation, String assignName, String assignSurname, String description, String reporterName, String reporterSurname) {
         this.taskId = taskId;
         this.code = code;
         this.name = name;
@@ -44,30 +46,32 @@ public class TaskDTO {
         this.resolvedDate = resolvedDate;
         this.closedDate = closedDate;
         this.estimation = estimation;
-        this.assign = assign;
+        this.assignName = assignName;
+        this.assignSurname = assignSurname;
         this.description = description;
-        this.reporter = reporter;
+        this.reporterName = reporterName;
+        this.reporterSurname = reporterSurname;
     }
 
-    public TaskDTO(TaskModel taskModel) {
-        this(
-                taskModel.getTaskId(),
-                taskModel.getCode(),
-                taskModel.getName(),
-                taskModel.getProjectByProjectId().getProjectCode(),
-                taskModel.getStatusByStatusId().getStatus(),
-                taskModel.getPriorityByPriorityId().getPriority(),
-                taskModel.getCreateDate(),
-                taskModel.getUpdateDate(),
-                taskModel.getDueDate(),
-                taskModel.getResolvedDate(),
-                taskModel.getClosedDate(),
-                taskModel.getEstimation(),
-                taskModel.getUserByAssign().getSurname() +" "+ taskModel.getUserByAssign().getName(),
-                taskModel.getDescription(),
-                taskModel.getUserByReporter().getSurname() +" "+ taskModel.getUserByReporter().getName()
-        );
-    }
+    //    public TaskDTO(TaskModel taskModel) {
+//        this(
+//                taskModel.getTaskId(),
+//                taskModel.getCode(),
+//                taskModel.getName(),
+//                taskModel.getProjectByProjectId().getProjectCode(),
+//                taskModel.getStatusByStatusId().getStatus(),
+//                taskModel.getPriorityByPriorityId().getPriority(),
+//                taskModel.getCreateDate(),
+//                taskModel.getUpdateDate(),
+//                taskModel.getDueDate(),
+//                taskModel.getResolvedDate(),
+//                taskModel.getClosedDate(),
+//                taskModel.getEstimation(),
+//                taskModel.getUserByAssign().getSurname() +" "+ taskModel.getUserByAssign().getName(),
+//                taskModel.getDescription(),
+//                taskModel.getUserByReporter().getSurname() +" "+ taskModel.getUserByReporter().getName()
+//        );
+//    }
 
 
     public int getTaskId() {
@@ -170,13 +174,8 @@ public class TaskDTO {
         this.estimation = estimation;
     }
 
-    public String getAssign() {
-        return assign;
-    }
 
-    public void setAssign(String assign) {
-        this.assign = assign;
-    }
+
 
     public String getDescription() {
         return description;
@@ -186,11 +185,35 @@ public class TaskDTO {
         this.description = description;
     }
 
-    public String getReporter() {
-        return reporter;
+    public String getAssignName() {
+        return assignName;
     }
 
-    public void setReporter(String reporter) {
-        this.reporter = reporter;
+    public void setAssignName(String assignName) {
+        this.assignName = assignName;
+    }
+
+    public String getAssignSurname() {
+        return assignSurname;
+    }
+
+    public void setAssignSurname(String assignSurname) {
+        this.assignSurname = assignSurname;
+    }
+
+    public String getReporterName() {
+        return reporterName;
+    }
+
+    public void setReporterName(String reporterName) {
+        this.reporterName = reporterName;
+    }
+
+    public String getReporterSurname() {
+        return reporterSurname;
+    }
+
+    public void setReporterSurname(String reporterSurname) {
+        this.reporterSurname = reporterSurname;
     }
 }

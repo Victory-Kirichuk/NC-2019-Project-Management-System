@@ -48,14 +48,13 @@ public class TaskDataServiceImpl implements TaskDataService {
 
     @Override
     public TaskModel save(TaskModel taskModel) {
-        return null;
+        RestTemplate restTemplate=new RestTemplate();
+        taskModel.setStatusId(3); // todo
+        taskModel.setReporter(taskModel.getAssign()); // todo
+        return restTemplate.postForEntity(backendServerUrl+"/backend/api/task",taskModel, TaskModel.class).getBody();
     }
 
-//    @Override
-//    public TaskModel save(TaskModel taskModel) {
-//        RestTemplate restTemplate=new RestTemplate();
-//        return restTemplate.
-//    }
+//    @Override3
 
 
 }

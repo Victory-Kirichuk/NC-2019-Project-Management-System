@@ -8,40 +8,39 @@
 
   </div>
   <div class="modal-body">
-    <form role="form">
       <div class="form-group">
-        <label >Task Code</label>
-        <input type="text"  class="form-control" >
+        <label >Task Code </label>
+        <input [(ngModel)]="newTask.code" type="text"  name="code" class="form-control" >
         <label >Name</label>
-        <input type="text"  class="form-control" >
+        <input [(ngModel)]="newTask.name" type="text"  name="name" class="form-control" >
 
         <label >Project Code</label>
-        <select  class="form-control">
-          <option [value]="projectCode.projectId" *ngFor="let projectCode of taskProjectCode">{{projectCode.projectCode}}</option>
+        <select  [(ngModel)]="newTask.projectCode" class="form-control">
+          <option name="projectCode" [value]="projectCode.projectId" *ngFor="let projectCode of taskProjectCode">{{projectCode.projectCode}}</option>
         </select>
 
         <label >Priority</label>
-        <select  class="form-control">
-          <option [value]="priority.priorityId" *ngFor="let priority of taskPriority">{{priority.priority}}</option>
+        <select  [(ngModel)]="newTask.priorityId" class="form-control" >
+          <option name="priority"  [value]="priority.priorityId" *ngFor="let priority of taskPriority">{{priority.priority}}</option>
         </select>
 
         <label >Due Date</label>
-        <input type="date" class="form-control" id="Due">
+        <input  name="duedate" [(ngModel)]="newTask.dueDate" type="date" class="form-control" id="Due">
 
         <label >Estimation (hours)</label>
-        <input type="number" min="0"  class="form-control" id="Estimation">
+        <input name="estimation" [(ngModel)]="newTask.estimation" type="number" min="0"  class="form-control" id="Estimation">
 
         <label >Assignee</label>
-        <select  class="form-control">
-          <option [value]="userName.userId" *ngFor="let userName of userName"> {{userName.name+" "+userName.surname}}</option>
+
+        <select [(ngModel)]="newTask.assign" class="form-control">
+          <option name="assignee" [value]="userName.userId" *ngFor="let userName of userName"> {{userName.surname+" "+userName.name}}</option>
         </select>
 
         <label >Description</label>
-        <input type="text" class="form-control" id="Description">
+        <input name="description" [(ngModel)]="newTask.description" type="text" class="form-control" id="Description">
 
       </div>
-    </form>
   </div>
-  <div class="modal-footer"><button class="btn btn-access">OK</button>
+  <div class="modal-footer"><button (click)="saveNewTask()" class="btn btn-access">OK</button>
 
   </div></ng-template>

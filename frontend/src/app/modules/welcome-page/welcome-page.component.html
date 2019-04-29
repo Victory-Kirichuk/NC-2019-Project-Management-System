@@ -64,9 +64,9 @@
         <td>{{task.dueDate}}</td>
         <td>{{task.closedDate}}</td>
         <td>{{task.estimation}}</td>
-        <td>{{task.assign}}</td>
+        <td>{{task.assignSurname+" "+task.assignName}}</td>
         <td>{{task.description}}</td>
-        <td><button  style="align-content: center" class="btn btn-success" [routerLink]="['/edit-project-page/']">Edit</button></td>
+        <td><button  style="align-content: center"  class="btn btn-success" [routerLink]="['/edit-project-page/']">Edit</button></td>
       </tr>
       <tr>
 

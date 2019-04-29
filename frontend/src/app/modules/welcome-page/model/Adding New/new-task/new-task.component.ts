@@ -24,7 +24,8 @@ export class NewTaskComponent implements OnInit {
 
   taskPriority: TaskPriority[];
   taskProjectCode: TaskProjectCode[];
-  newTask:Task=new Task();
+  public newTask:Task=new Task();
+  test: any = {};
 
   private subscriptions: Subscription[] = [];
 
@@ -35,6 +36,7 @@ export class NewTaskComponent implements OnInit {
               private taskProjectCodeService: TaskProjectCodeService,
               private userNameService: UserNameService,
               private taskService:TaskService) {
+
   }
 
   ngOnInit() {
@@ -77,4 +79,5 @@ export class NewTaskComponent implements OnInit {
   closeModal(): void {
     this.modalRef.hide();
   }
+
 }
