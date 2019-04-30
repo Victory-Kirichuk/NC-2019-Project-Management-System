@@ -2,7 +2,7 @@ export class Task {
   taskId: string;
   code: string;
   name: string;
-  projectCode: string;
+  projectId: string;
   priorityId: string;
   statusId: string;
   createdDate: string;
@@ -22,7 +22,7 @@ export class Task {
     clonedTask.taskId = task.taskId;
     clonedTask.name = task.name;
     clonedTask.code = task.code;
-    clonedTask.projectCode = task.projectCode;
+    clonedTask.projectId = task.projectId;
     clonedTask.priorityId = task.priorityId;
     clonedTask.statusId = task.statusId;
     clonedTask.createdDate = task.createdDate;
@@ -49,7 +49,7 @@ export class Task {
     return  this.code;
   }
   public  getProjectCode():string{
-    return this.projectCode;
+    return this.projectId;
   }
   public getPriority(): string{
     return this.priorityId;

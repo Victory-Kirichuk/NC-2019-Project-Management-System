@@ -8,7 +8,7 @@ import {TaskPriorityService} from "../../services/task-priority.service";
 import {ProjectService} from "../../services/project.service";
 import {TaskProjectCode} from "./model/task-projectCode";
 import {TaskProjectCodeService} from "../../services/task-projectCode.service";
-import {UserName} from "./model/user-name";
+import {User} from "./model/user";
 import {UserNameService} from "../../services/user-name.service";
 import {Project} from "./model/project";
 import {TaskService} from "../../services/task.service";
@@ -21,7 +21,7 @@ import { Task} from "./model/task";
 })
 export class WelcomePageComponent implements OnInit {
   private modalRef: BsModalRef;
-  userName:UserName[];
+  userName:User[];
   userRole: UserRole[];
   tasks:Task[];
   taskPriority: TaskPriority[];
@@ -61,7 +61,7 @@ export class WelcomePageComponent implements OnInit {
   }
   private loadUserName() :void {
     this.subscriptions.push(this.userNameService.getUserName().subscribe(userName=>{
-    this.userName= userName as UserName[];}))
+    this.userName= userName as User[];}))
 
   }
 

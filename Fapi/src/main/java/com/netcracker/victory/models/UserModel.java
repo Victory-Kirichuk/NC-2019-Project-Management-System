@@ -4,7 +4,7 @@ public class UserModel {
     private int userId;
     private String name;
     private String surname;
-    private Integer role;
+    private int role;
     private String email;
     private String password;
 
@@ -44,11 +44,11 @@ public class UserModel {
         this.surname = surname;
     }
 
-    public Integer getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(int role) {
         this.role = role;
     }
 

@@ -1,6 +1,6 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import {TaskPriority} from "../../task-priority";
-import {UserName} from "../../user-name";
+import {User} from "../../user";
 import {BsModalRef, BsModalService} from "ngx-bootstrap";
 import {TaskProjectCode} from "../../task-projectCode";
 
@@ -20,7 +20,7 @@ import {Task} from "../../task";
 })
 export class NewTaskComponent implements OnInit {
   private modalRef: BsModalRef;
-  userName: UserName[];
+  userName: User[];
 
   taskPriority: TaskPriority[];
   taskProjectCode: TaskProjectCode[];
@@ -67,7 +67,7 @@ export class NewTaskComponent implements OnInit {
 
   private loadUserName(): void {
     this.subscriptions.push(this.userNameService.getUserName().subscribe(userName => {
-      this.userName = userName as UserName[];
+      this.userName = userName as User[];
     }))
 
   }

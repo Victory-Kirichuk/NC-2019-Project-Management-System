@@ -26,7 +26,7 @@ import {NewTaskComponent} from "./modules/welcome-page/model/Adding New/new-task
     NewProjectComponent,
     NewUserComponent,
     NewTaskComponent,
-    NewTaskComponent
+
   ],
   imports: [
     BrowserModule,

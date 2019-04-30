@@ -5,8 +5,10 @@ import com.netcracker.victory.backend.entities.UserEntity;
 import com.netcracker.victory.backend.repository.TaskRepository;
 import com.netcracker.victory.backend.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.List;
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -15,6 +17,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<TaskEntity> findAll() {
         return (List<TaskEntity>) taskRepository.findAll() ;
+    }
+
+    @Override
+    public Page<TaskEntity> findAll(Pageable pageable) {
+        return (Page<TaskEntity>) taskRepository.findAll() ;
     }
 
     @Override

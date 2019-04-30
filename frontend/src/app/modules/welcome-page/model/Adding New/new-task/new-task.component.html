@@ -14,12 +14,12 @@
         <label >Name</label>
         <input [(ngModel)]="newTask.name" type="text"  name="name" class="form-control" >
 
-        <label >Project Code</label>
-        <select  [(ngModel)]="newTask.projectCode" class="form-control">
+        <label >Project Code {{newTask.projectId}}</label>
+        <select  [(ngModel)]="newTask.projectId" class="form-control">
           <option name="projectCode" [value]="projectCode.projectId" *ngFor="let projectCode of taskProjectCode">{{projectCode.projectCode}}</option>
         </select>
 
-        <label >Priority</label>
+        <label >Priority </label>
         <select  [(ngModel)]="newTask.priorityId" class="form-control" >
           <option name="priority"  [value]="priority.priorityId" *ngFor="let priority of taskPriority">{{priority.priority}}</option>
         </select>

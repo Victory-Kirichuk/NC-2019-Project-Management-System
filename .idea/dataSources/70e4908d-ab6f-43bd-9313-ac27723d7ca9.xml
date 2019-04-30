@@ -1321,7 +1321,6 @@
     <column id="323" parent="286" name="status_id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="324" parent="286" name="priority_id">
@@ -1363,7 +1362,6 @@
     <column id="331" parent="286" name="assign">
       <Position>13</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="332" parent="286" name="description">
@@ -1374,7 +1372,6 @@
     <column id="333" parent="286" name="reporter">
       <Position>15</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="334" parent="286" name="status_idx">

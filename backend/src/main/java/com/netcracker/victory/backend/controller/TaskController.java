@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
@@ -33,7 +34,7 @@ public class TaskController {
 
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<TaskEntity> getAllTaskEntities() {
+    public Pageable<TaskEntity> getAllTaskEntities() {
         return taskService.findAll();
     }
 
