@@ -54,6 +54,9 @@ public class UserServiceImpl implements  UserService {
 
     @Override
     public UserModel save(UserModel userModel) {
-        return null;
+          RestTemplate restTemplate = new RestTemplate();
+
+        return  restTemplate.postForEntity(backendServerUrl + "/backend/api/user/", userModel, UserModel.class).getBody();
+
     }
 }

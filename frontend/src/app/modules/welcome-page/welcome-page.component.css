@@ -1,15 +1,25 @@
 
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
-.form-control{text-align: left}
-.input-group {text-align: right}
+.form-control {
+  text-align: left
+}
+
+.input-group {
+  text-align: right
+}
+
 button {
 
   margin-top: auto;
 
 }
 
-.modal-body,.modal-footer,.modal-header,.form-group{background-color: white;}
+.modal-body, .modal-footer, .modal-header, .form-group {
+  background-color: white;
+}
 
 @media screen and (max-width: 600px) {
   table td:before {
@@ -21,15 +31,12 @@ button {
 }
 
 
-
-
-
-
 .d7 form {
   width: auto;
   float: right;
   margin-right: 30px;
 }
+
 .d7 input {
   width: 250px;
   height: 42px;
@@ -41,9 +48,11 @@ button {
   position: relative;
   transition: .3s linear;
 }
+
 .d7 input:focus {
   width: 300px;
 }
+
 .d7 button {
   width: 42px;
   height: 42px;
@@ -53,7 +62,8 @@ button {
   top: -2px;
   right: 0;
 }
-.d7 button:before{
+
+.d7 button:before {
   content: "\f002";
   font-family: FontAwesome;
   color: #324b4e;

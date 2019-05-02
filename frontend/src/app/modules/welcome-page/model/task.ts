@@ -3,6 +3,7 @@ export class Task {
   code: string;
   name: string;
   projectId: string;
+  projectCode: string;
   priorityId: string;
   statusId: string;
   createdDate: string;
@@ -15,8 +16,9 @@ export class Task {
   assignSurname: string;
   description: string;
   reporterName: string;
-  assign:string;
+  assign: string;
   reporterSurname: string;
+
   static cloneBase(task: Task): Task {
     const clonedTask: Task = new Task();
     clonedTask.taskId = task.taskId;
@@ -36,54 +38,48 @@ export class Task {
     clonedTask.reporterSurname = task.reporterSurname;
     clonedTask.estimation = task.estimation;
     clonedTask.description = task.description;
-    clonedTask.assign=task.assign;
+    clonedTask.assign = task.assign;
+    clonedTask.projectCode = task.projectCode;
     return clonedTask;
   }
 
 
-  public getName() :string{
+  public getName(): string {
     return this.name;
   }
 
-  public  getCode():string{
-    return  this.code;
+  public getCode(): string {
+    return this.code;
   }
-  public  getProjectCode():string{
-    return this.projectId;
+
+  public getProjectCode(): string {
+    return this.projectCode;
   }
-  public getPriority(): string{
+
+  public getPriority(): string {
     return this.priorityId;
   }
 
 
-  public  getStatus():string{
+  public getStatus(): string {
     return this.statusId;
   }
-  public  getCreatedDate():string{
+
+  public getCreatedDate(): string {
     return this.createdDate;
   }
 
-  public  getUpdatedDate():string{
+  public getUpdatedDate(): string {
     return this.updateDate;
   }
 
-  public  getResolvedDate():string{
+  public getResolvedDate(): string {
     return this.resolvedDate;
   }
-  public  getDueDate():string{
+
+  public getDueDate(): string {
     return this.dueDate;
   }
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

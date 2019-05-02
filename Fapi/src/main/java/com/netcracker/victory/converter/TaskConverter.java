@@ -6,16 +6,17 @@ import com.netcracker.victory.service.PriorityDataService;
 import com.netcracker.victory.service.ProjectDataService;
 import com.netcracker.victory.service.StatusDataService;
 import com.netcracker.victory.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
- public  class TaskConverter {
-    public static TaskDTO convert(TaskModel taskModel)
-    {
-        TaskDTO taskDTO=new TaskDTO();
+public class TaskConverter {
+    private StatusDataService statusDataService;
+    private PriorityDataService priorityDataService;
+    private UserService userService;
+    private ProjectDataService projectDataService;
+
+    public static TaskDTO convert(TaskModel taskModel) {
+        TaskDTO taskDTO = new TaskDTO();
         taskDTO.setTaskId(taskModel.getTaskId());
         taskDTO.setCode(taskModel.getCode());
         taskDTO.setPriority(taskModel.getPriorityByPriorityId().getPriority());
@@ -33,20 +34,13 @@ import java.util.List;
         taskDTO.setEstimation(taskModel.getEstimation());
         taskDTO.setName(taskModel.getName());
         taskDTO.setProjectCode(taskModel.getProjectByProjectId().getProjectCode());
-
+        taskDTO.setProjectId(taskModel.getProjectId());
+        taskDTO.setAssign(taskModel.getAssign());
         return taskDTO;
     }
 
-    private StatusDataService statusDataService;
-    private PriorityDataService priorityDataService;
-    private UserService userService;
-    private ProjectDataService projectDataService;
-
-
-
-    public static TaskModel convertToModel(TaskDTO taskDTO)
-    {
-        TaskModel taskModel=new TaskModel();
+    public static TaskModel convertToModel(TaskDTO taskDTO) {
+        TaskModel taskModel = new TaskModel();
         taskModel.setTaskId(taskDTO.getTaskId());
         taskModel.setCode(taskDTO.getCode());
         taskModel.setName(taskDTO.getName());
@@ -61,13 +55,8 @@ import java.util.List;
         taskModel.setUpdateDate(taskDTO.getUpdateDate());
 
 
-
-
-
-
         return taskModel;
     }
-
 
 
 }

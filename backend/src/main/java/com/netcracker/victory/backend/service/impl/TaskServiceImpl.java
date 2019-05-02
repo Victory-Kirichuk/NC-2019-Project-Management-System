@@ -14,15 +14,12 @@ import java.util.List;
 public class TaskServiceImpl implements TaskService {
     @Autowired
     private TaskRepository taskRepository;
-    @Override
-    public List<TaskEntity> findAll() {
-        return (List<TaskEntity>) taskRepository.findAll() ;
-    }
 
-    @Override
-    public Page<TaskEntity> findAll(Pageable pageable) {
-        return (Page<TaskEntity>) taskRepository.findAll() ;
-    }
+
+//    @Override
+//    public Page<TaskEntity> findAll(Pageable pageable) {
+//        return taskRepository.findAll(pageable) ;
+//    }
 
     @Override
     public TaskEntity findTaskEntityByCode(String code) {
@@ -34,18 +31,22 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.findTaskEntityByName(name);
     }
 
-    @Override
-    public TaskEntity findTaskEntityByAssign(int assign) {
-        return taskRepository.findTaskEntityByAssign(assign);
-    }
+//    @Override
+//    public Page<TaskEntity> findTaskEntityByAssign(int assign, Pageable pageable) {
+//        return taskRepository.findTaskEntityByAssign(assign,pageable);
+//    }
 
-    @Override
-    public TaskEntity findTaskEntityByUserByAssign(UserEntity userEntity) {
-        return taskRepository.findTaskEntityByUserByAssign(userEntity);
-    }
+
+
+
 
     @Override
     public TaskEntity save(TaskEntity taskEntity) {
         return taskRepository.save(taskEntity);
+    }
+
+    @Override
+    public List<TaskEntity> findAll() {
+        return taskRepository.findAll();
     }
 }

@@ -1,15 +1,15 @@
 package com.netcracker.victory.Controllers;
 
 
-import com.netcracker.victory.models.UserAssigneeModel;
 import com.netcracker.victory.models.UserModel;
 import com.netcracker.victory.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+//import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController("UController")
 @RequestMapping("/user")
@@ -18,8 +18,8 @@ public class UserController {
 @Autowired
     private UserService userService;
 @GetMapping
-@RequestMapping
-public ResponseEntity<List<UserModel>> getStatuses(){
+@RequestMapping(value = "",method = RequestMethod.GET)
+public ResponseEntity<List<UserModel>> getUsers(){
 
     return ResponseEntity.ok(userService.getAll());
 
@@ -38,6 +38,13 @@ public ResponseEntity<List<UserModel>> getStatuses(){
     }
 
 
+
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<UserModel> save(@RequestBody UserModel userModel ) {
+
+            return ResponseEntity.ok(userService.save(userModel));
+
+    }
 
 }
 

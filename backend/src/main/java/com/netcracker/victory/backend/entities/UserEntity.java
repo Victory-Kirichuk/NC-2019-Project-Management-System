@@ -58,7 +58,7 @@ public class UserEntity {
 
     @Basic
     @Column(name = "email")
-    @Pattern(regexp = "/\\A[^@]+@([^@\\.]+\\.)+[^@\\.]+\\z/")
+
     public String getEmail() {
         return email;
     }

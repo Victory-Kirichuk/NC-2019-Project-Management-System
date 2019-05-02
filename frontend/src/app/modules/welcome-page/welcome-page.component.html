@@ -3,15 +3,16 @@
 <div class="container-fluid">
   <div class="row jumbotron">
     <div class="col-2">
-      <app-new-project> </app-new-project></div>
+      <app-new-project></app-new-project>
+    </div>
     <div class="col-2">
 
       <app-new-user></app-new-user>
     </div>
 
     <div class="col-2">
-<app-new-task></app-new-task>
-     </div>
+      <app-new-task></app-new-task>
+    </div>
     <div class="col-6">
       <div class="d7">
         <form>
@@ -19,61 +20,63 @@
           <button type="submit"></button>
         </form>
       </div>
+    </div>
+
+
   </div>
-
-
-  </div></div>
-
-
-
+</div>
 
 
 <div class="container-fluid">
   <div class="col-md-12">
-  <div class="row text-center alert">
+    <div class="row text-center alert">
 
-    <table class="table table-bordered table-hover" >
-      <thead class="thead-dark">
-      <tr class="active">
-        <th scope="col">Project Code</th>
-        <th scope="col">Task Code</th>
-        <th scope="col">Task Name</th>
-        <th scope="col">Priority</th>
-        <th scope="col">Status</th>
-        <th scope="col">Created</th>
-        <th scope="col"> Updated</th>
-        <th scope="col"> Resolved</th>
-        <th scope="col"> Due Date</th>
-        <th scope="col"> Closed</th>
-        <th scope="col"> Estimation</th>
-        <th scope="col"> Assignee</th>
-        <th scope="col">Description</th>
-        <th scope="col"> Action</th>
-      </tr>
-      </thead>
-      <tbody id="Table">
-      <tr *ngFor="let task of tasks">
-        <td><a routerLink="['/task-page']">{{task.projectCode}} </a> </td>
-        <td>{{task.code}}</td>
-        <td>{{task.name}}</td>
-        <td>{{task.priorityId}}</td>
-        <td>{{task.statusId}}</td>
-        <td>{{task.createdDate}}</td>
-        <td>{{task.updateDate}}</td>
-        <td>{{task.resolvedDate}}</td>
-        <td>{{task.dueDate}}</td>
-        <td>{{task.closedDate}}</td>
-        <td>{{task.estimation}}</td>
-        <td>{{task.assignSurname+" "+task.assignName}}</td>
-        <td>{{task.description}}</td>
-        <td><button  style="align-content: center"  class="btn btn-success" [routerLink]="['/edit-project-page/']">Edit</button></td>
-      </tr>
-      <tr>
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr class="active">
+          <th scope="col">Project Code</th>
+          <th scope="col">Task Code</th>
+          <th scope="col">Task Name</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Status</th>
+          <th scope="col">Created</th>
+          <th scope="col"> Updated</th>
+          <th scope="col"> Resolved</th>
+          <th scope="col"> Due Date</th>
+          <th scope="col"> Closed</th>
+          <th scope="col"> Estimation</th>
+          <th scope="col"> Assignee</th>
+          <th scope="col">Description</th>
+          <th scope="col"> Action</th>
+        </tr>
+        </thead>
+        <tbody id="Table">
+        <tr *ngFor="let task of tasks">
+          <td><a routerLink="['/task-page']">{{task.projectCode}} </a></td>
+          <td>{{task.code}}</td>
+          <td>{{task.name}}</td>
+          <td>{{task.priorityId}}</td>
+          <td>{{task.statusId}}</td>
+          <td>{{task.createdDate}}</td>
+          <td>{{task.updateDate}}</td>
+          <td>{{task.resolvedDate}}</td>
+          <td>{{task.dueDate}}</td>
+          <td>{{task.closedDate}}</td>
+          <td>{{task.estimation}}</td>
+          <td>{{task.assignSurname + " " + task.assignName}}</td>
+          <td>{{task.description}}</td>
+          <td>
+            <button style="align-content: center" class="btn btn-success" [routerLink]="['/ed-project-page/']">Edit
+            </button>
+          </td>
+        </tr>
+        <tr>
 
-      </tr>
-      <tr>
-      </tr>
-      </tbody>
-    </table>
+        </tr>
+        <tr>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  </div></div>
+</div>

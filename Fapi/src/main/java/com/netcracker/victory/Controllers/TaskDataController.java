@@ -44,10 +44,9 @@ private TaskConverter taskConverter;
     }
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<TaskModel> saveProject(@RequestBody TaskModel taskModel ) {
-        if (taskModel != null) {
+
             return ResponseEntity.ok(taskDataService.save(taskModel));
-        }
-        return null;
+
     }
 
 //    @RequestMapping(method = RequestMethod.POST)

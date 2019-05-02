@@ -10,6 +10,7 @@ public class TaskDTO {
     private int taskId;
     private String code;
     private String name;
+    private int projectId;
     private String projectCode;
     private String status;
     private String priority;
@@ -24,17 +25,35 @@ public class TaskDTO {
     @JsonSerialize(using = DateSerializer.class)
     private Date closedDate;
     private int estimation;
+    private int assign;
     private String assignName;
     private String assignSurname;
     private String description;
     private String reporterName;
-    private int assignId;
     private String reporterSurname;
     public TaskDTO() {
     }
 
-    public TaskDTO(int taskId, String code, String name, String projectCode, String status, String priority, Date createDate, Date updateDate, Date dueDate, Date resolvedDate, Date closedDate, int estimation, String assignName, String assignSurname, String description, String reporterName, String reporterSurname) {
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    public int getAssign() {
+        return assign;
+    }
+
+    public void setAssign(int assign) {
+        this.assign = assign;
+    }
+
+    public TaskDTO(int taskId, String code, String name, int projectId, String projectCode, String status, String priority, Date createDate, Date updateDate, Date dueDate, Date resolvedDate, Date closedDate, int estimation, String assignName, String assignSurname, String description, String reporterName, String reporterSurname, int
+                   assign) {
         this.taskId = taskId;
+        this.projectId=projectId;
         this.code = code;
         this.name = name;
         this.projectCode = projectCode;
@@ -51,6 +70,7 @@ public class TaskDTO {
         this.description = description;
         this.reporterName = reporterName;
         this.reporterSurname = reporterSurname;
+        this.assign=assign;
     }
 
     //    public TaskDTO(TaskModel taskModel) {

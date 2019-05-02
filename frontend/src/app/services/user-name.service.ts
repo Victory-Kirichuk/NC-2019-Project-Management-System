@@ -17,7 +17,7 @@ export class UserNameService {
     return this.http.get<User[]>('/api/user');
   }
  saveNewUser(user:User):Observable<User>{
-    return this.http.post<User>("api/user",user);
+    return this.http.post<User>("api/user/",user);
  }
 
 
