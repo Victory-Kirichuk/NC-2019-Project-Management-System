@@ -8,7 +8,7 @@ import {EdProjectPageComponent} from "./modules/ed_project-page/ed-project-page.
 const routes: Routes = [
   {path: 'welcome-page', component: WelcomePageComponent},
   {path:'', component:LoginPageComponent},
-  {path:'edit-project-page', component:EdProjectPageComponent}
+  {path:'edit-project-page/:taskId', component:EdProjectPageComponent}
 ];
 
 @NgModule({

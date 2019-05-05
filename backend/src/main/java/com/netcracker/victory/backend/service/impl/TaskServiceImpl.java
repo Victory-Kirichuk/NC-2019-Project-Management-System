@@ -16,11 +16,6 @@ public class TaskServiceImpl implements TaskService {
     private TaskRepository taskRepository;
 
 
-//    @Override
-//    public Page<TaskEntity> findAll(Pageable pageable) {
-//        return taskRepository.findAll(pageable) ;
-//    }
-
     @Override
     public TaskEntity findTaskEntityByCode(String code) {
         return taskRepository.findTaskEntityByCode(code);
@@ -31,13 +26,10 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.findTaskEntityByName(name);
     }
 
-//    @Override
-//    public Page<TaskEntity> findTaskEntityByAssign(int assign, Pageable pageable) {
-//        return taskRepository.findTaskEntityByAssign(assign,pageable);
-//    }
-
-
-
+    @Override
+    public Page<TaskEntity> findTaskEntityByAssign(int assign, org.springframework.data.domain.Pageable pageable) {
+        return null;
+    }
 
 
     @Override
@@ -48,5 +40,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<TaskEntity> findAll() {
         return taskRepository.findAll();
+    }
+
+    @Override
+    public Page<TaskEntity> findAll(org.springframework.data.domain.Pageable pageable) {
+        //taskRepository.findAll(pageable).getContent();
+        return taskRepository.findAll(pageable) ;
     }
 }

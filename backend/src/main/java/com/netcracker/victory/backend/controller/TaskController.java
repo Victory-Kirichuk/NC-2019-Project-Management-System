@@ -19,7 +19,7 @@ import java.util.List;
 public class TaskController {
     @Autowired
     public TaskService taskService;
-  //  private final int TASK_ON_PAGE = 4;
+   private final int TASK_ON_PAGE = 4;
 
     @RequestMapping (value = "/code/{code}",method = RequestMethod.GET)
     public ResponseEntity<TaskEntity> getTaskEntityByCode(@PathVariable(name ="code")String code)
@@ -35,18 +35,18 @@ public class TaskController {
 
 //        @RequestMapping(value = "/userByAssign/{userByAssign}",method =RequestMethod.GET )
 //        public ResponseEntity<TaskEntity> getTaskEntityByUserByAssign(@PathVariable(name = "userByAssign"))
-
-
-    @RequestMapping(value = "",method = RequestMethod.GET)
-    public List<TaskEntity> getAllTasks(){
-        return  taskService.findAll();
-    }
 //
-//@RequestMapping (value = "",method = RequestMethod.GET)
-////public Page<TaskEntity> getAllTasks(@RequestParam(defaultValue = "0")int page){
-////        Page<TaskEntity> taskEntityPage=taskService.findAll(new PageRequest(page,TASK_ON_PAGE))
-////     return
-////}
+//
+//    @RequestMapping(value = "",method = RequestMethod.GET)
+//    public List<TaskEntity> getAllTasks(){
+//        return  taskService.findAll();
+//    }
+
+@RequestMapping (value = "",method = RequestMethod.GET)
+public Page<TaskEntity> getAllTasks(@RequestParam(defaultValue = "0")int page){
+        Page<TaskEntity> taskEntityPage=taskService.findAll(new PageRequest(page,TASK_ON_PAGE));
+     return taskEntityPage;
+}
 
 
 

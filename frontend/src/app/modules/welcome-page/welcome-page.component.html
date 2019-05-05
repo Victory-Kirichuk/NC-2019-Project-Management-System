@@ -66,7 +66,7 @@
           <td>{{task.assignSurname + " " + task.assignName}}</td>
           <td>{{task.description}}</td>
           <td>
-            <button style="align-content: center" class="btn btn-success" [routerLink]="['/ed-project-page/']">Edit
+            <button style="align-content: center" class="btn btn-success" [routerLink]="['/ed-project-page',task.taskId]">Edit
             </button>
           </td>
         </tr>
