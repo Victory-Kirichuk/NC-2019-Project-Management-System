@@ -1,8 +1,8 @@
 package com.netcracker.victory.Controllers;
 
 import com.netcracker.victory.converter.TaskConverter;
-import com.netcracker.victory.models.DTO.TaskDTO;
 import com.netcracker.victory.models.DTO.PageDTO;
+import com.netcracker.victory.models.DTO.TaskDTO;
 import com.netcracker.victory.models.TaskModel;
 import com.netcracker.victory.service.PriorityDataService;
 import com.netcracker.victory.service.ProjectDataService;
@@ -39,7 +39,7 @@ public class TaskDataController {
     }
 
     @RequestMapping(value = "/page/{currentPage}", method = RequestMethod.GET)
-    public ResponseEntity<Page<TaskDTO>> getTaskDTOs(@PathVariable(name = "currentPage")int currentPage) {
+    public ResponseEntity<Page<TaskDTO>> getTaskDTOs(@PathVariable(name = "currentPage") int currentPage) {
         Page<TaskModel> taskModels = taskDataService.getAll(currentPage);
         List<TaskDTO> taskDTOS = taskModels.getContent().stream().map(TaskConverter::convert).collect(Collectors.toList());
         Page<TaskDTO> taskDTOPage = new PageImpl<>(taskDTOS);
@@ -50,13 +50,15 @@ public class TaskDataController {
         restPageDTO.setNumberOfElements(taskModels.getNumberOfElements());
         restPageDTO.setCurrentPage(taskModels.getNumber());
 
-
+        restPageDTO.setFirst(taskModels.isFirst());
+        restPageDTO.setLast(taskModels.isLast());
         return ResponseEntity.ok(taskDTOPage);
 
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<TaskModel> saveProject(@RequestBody TaskModel taskModel) {
+    public ResponseEntity<TaskModel> saveTask(@RequestBody TaskModel taskModel) {
+
         //       ResponseEntity<TaskModel> responseEntity = ResponseEntity.ok(taskDataService.save(taskModel));
 //        TaskModel taskModel1 = responseEntity.getBody();
 //        taskModel1.setCreateDate()
@@ -64,7 +66,12 @@ public class TaskDataController {
 
 
     }
-
+//    @RequestMapping(method = RequestMethod.POST)
+//    public ResponseEntity<UserModel> save(@RequestBody UserModel userModel ) {
+//
+//        return ResponseEntity.ok(userService.save(userModel));
+//
+//    }
 //    @RequestMapping(method = RequestMethod.POST)
 //    public ResponseEntity<AttachModel> save(@RequestBody AttachModel attachModel ) {
 //        if (attachModel != null) {

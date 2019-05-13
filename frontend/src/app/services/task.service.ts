@@ -12,7 +12,7 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   getAllTasks(): Observable<Task[]>{
-    return this.http.get<Task[]>("/api/task");
+    return this.http.get<Task[]>("/api/task/page/, currentPage");
   }
   saveNewTask(task: Task): Observable<Task>{
     return this.http.post<Task>("/api/task", task);

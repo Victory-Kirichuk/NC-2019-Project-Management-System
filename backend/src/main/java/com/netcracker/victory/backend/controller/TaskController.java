@@ -51,6 +51,6 @@ public Page<TaskEntity> getAllTasks(@RequestParam(defaultValue = "0")int page){
 
 
     @RequestMapping(method = RequestMethod.POST)
-    public TaskEntity saveUser(@RequestBody TaskEntity taskEntity) {return  taskService.save(taskEntity);}
+    public TaskEntity saveTask(@RequestBody TaskEntity taskEntity) {return  taskService.save(taskEntity);}
 
 }

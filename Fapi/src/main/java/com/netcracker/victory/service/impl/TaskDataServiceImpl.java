@@ -45,10 +45,17 @@ public class TaskDataServiceImpl implements TaskDataService {
     }
 
     @Override
-    public RestPageModel getAll(int page) {
-     RestTemplate restTemplate=new RestTemplate();
-     return restTemplate.getForObject(backendServerUrl+"/backend/api/task?page="+page,RestPageModel.class);
+    public Page<TaskModel> getAll(int page) {
+return null;
+      //  return restTemplate.getForObject(backendServerUrl+"/backend/api/task?page="+page,RestPageModel.class);
     }
+
+//    @Override
+//    public RestPageModel getAll(int page) {
+//     RestTemplate restTemplate=new RestTemplate();
+//        return restTemplate.getForObject(backendServerUrl+"/backend/api/task?page="+page,RestPageModel.class);
+//
+//    }
 
 //    @Override
 //    public PageDTO getAllpages() {
